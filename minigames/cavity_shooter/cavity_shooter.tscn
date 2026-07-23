@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://buk3jgpgawidx"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cneui"]
+
+[node name="CavityShooter" type="Node3D" unique_id=1378773574]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=316796150]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=329016665]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2015604550]
+mesh = SubResource("CylinderMesh_cneui")
