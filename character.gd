@@ -1,7 +1,7 @@
 extends Node3D
 
 var mouse_sensitivity = 0.002
-var yaw_limit = deg_to_rad(45)   # how far left/right you can look
+var yaw_limit = deg_to_rad(360)   # how far left/right you can look
 var pitch_limit = deg_to_rad(30) # how far up/down you can look
 
 var yaw = 0.0
@@ -10,8 +10,9 @@ var pitch = 0.0
 @onready var camera: Camera3D = $Camera3D
 
 func _ready():
+	get_window().grab_focus()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-
+	
 func _input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		yaw -= event.relative.x * mouse_sensitivity
@@ -35,5 +36,19 @@ func shoot():
 	query.collide_with_areas = true
 
 	var result = space_state.intersect_ray(query)
-	if result and result.collider.is_in_group("targets"):
-		result.collider.hit()
+
+	print(result)
+
+	if result:
+		print("Hit:", result.collider.name)
+		print("Groups:", result.collider.get_groups())
+
+		if result.collider.is_in_group("targets"):
+			print("TARGET HIT!")
+			result.collider.hit()
+			
+			
+	print("Camera:", camera.global_position)
+	print("Basis Z:", camera.global_transform.basis.z)
+	print("From:", from)
+	print("To:", to)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://f1g584e87ilt"]
 
 [ext_resource type="PackedScene" uid="uid://bomdwy4fiasgr" path="res://character.tscn" id="1_ig7tw"]
-[ext_resource type="Script" uid="uid://dyhgc18pxafml" path="res://target.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://b847k3t4yc5lw" path="res://level_manager.gd" id="3_h2yge"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbh3u"]
 albedo_color = Color(0.089563765, 0.5009525, 0.3467506, 1)
@@ -22,10 +22,6 @@ background_mode = 1
 background_color = Color(0.9999376, 0.53110206, 0.46594632, 1)
 sky = SubResource("Sky_fbh3u")
 ambient_light_energy = 5.86
-
-[sub_resource type="SphereMesh" id="SphereMesh_4ugoo"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_4ugoo"]
 
 [node name="Main_tscn" type="Node3D" unique_id=1229234287]
 
@@ -49,16 +45,6 @@ transform = Transform3D(1, 0, 0, 0, 0.72470725, 0.68905693, 0, -0.68905693, 0.72
 [node name="WorldEnvironment" type="WorldEnvironment" parent="sun" unique_id=2112954550]
 environment = SubResource("Environment_1say5")
 
-[node name="Target" type="Area3D" parent="." unique_id=301665666]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0543544, -9.0095215)
-script = ExtResource("2_0xm2m")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Target" unique_id=820744229]
-mesh = SubResource("SphereMesh_4ugoo")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Target" unique_id=1949333159]
-shape = SubResource("SphereShape3D_4ugoo")
-
 [node name="HUD" type="CanvasLayer" parent="." unique_id=653140426]
 
 [node name="Label" type="Label" parent="HUD" unique_id=1223307662]
@@ -75,3 +61,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "+"
+
+[node name="MinigameContainer" type="Node3D" parent="." unique_id=1563790441]
+
+[node name="LevelManager" type="Node" parent="." unique_id=344320842 node_paths=PackedStringArray("minigame_container", "character")]
+script = ExtResource("3_h2yge")
+minigame_container = NodePath("../MinigameContainer")
+character = NodePath("../character")
