@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://f1g584e87ilt"]
+
+[ext_resource type="PackedScene" uid="uid://bomdwy4fiasgr" path="res://character.tscn" id="1_ig7tw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbh3u"]
+albedo_color = Color(0.089563765, 0.5009525, 0.3467506, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1say5"]
+size = Vector3(24.229767, 0.001, 27.670837)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7dm0k"]
+points = PackedVector3Array(-3.5793648, -0.07986507, -5.077377, 3.5634918, 0.07886508, 5.077377, 3.5634918, -0.07986507, 5.077377, 3.5634918, 0.07886508, -5.077377, -3.5793648, 0.07886508, 5.077377, -3.5793648, -0.07986507, 5.077377, 3.5634918, -0.07986507, -5.077377, -3.5793648, 0.07886508, -5.077377)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_yr74j"]
+
+[sub_resource type="Sky" id="Sky_fbh3u"]
+sky_material = SubResource("PhysicalSkyMaterial_yr74j")
+
+[sub_resource type="Environment" id="Environment_1say5"]
+background_mode = 1
+background_color = Color(0.9999376, 0.53110206, 0.46594632, 1)
+sky = SubResource("Sky_fbh3u")
+ambient_light_energy = 5.86
+
+[node name="Main_tscn" type="Node3D" unique_id=1229234287]
+
+[node name="floor" type="StaticBody3D" parent="." unique_id=1297136965]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=939648775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9438629, -0.4995, -4.4497986)
+material_override = SubResource("StandardMaterial3D_fbh3u")
+mesh = SubResource("BoxMesh_1say5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=414430685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.4995, -3.5)
+shape = SubResource("ConvexPolygonShape3D_7dm0k")
+
+[node name="character" parent="." unique_id=1712112248 instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.16659617, -4)
+
+[node name="sun" type="DirectionalLight3D" parent="." unique_id=767505923]
+transform = Transform3D(1, 0, 0, 0, 0.72470725, 0.68905693, 0, -0.68905693, 0.72470725, 0, 5.712985, 5.877101)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="sun" unique_id=2112954550]
+environment = SubResource("Environment_1say5")
