@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c43bbwtihr63r"]
 
-[ext_resource type="Script" uid="uid://bkes2gfws12cr" path="res://minigames/target_practice.gd" id="1_nchf0"]
+[ext_resource type="Script" uid="uid://bkes2gfws12cr" path="res://minigames/fish_finder/target_practice.gd" id="1_nchf0"]
 
 [node name="TargetPractice" type="Node3D" unique_id=167084688]
 script = ExtResource("1_nchf0")

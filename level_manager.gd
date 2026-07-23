@@ -5,7 +5,9 @@ extends Node
 @export var start_target: Area3D   # NEW — drag StartTarget here
 
 var all_minigames: Array[String] = [
-	"res://minigames/TargetPractice.tscn",
+	"res://minigames/fish_finder/TargetPractice.tscn",
+	"res://minigames/cavity_shooter/cavity_shooter.tscn",
+
 ]
 
 var current_level = 10

@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://buk3jgpgawidx"]
 
+[ext_resource type="Script" uid="uid://5eqovrajpi5u" path="res://minigames/cavity_shooter/cavity_shooter.gd" id="1_quc8i"]
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_cneui"]
 
 [node name="CavityShooter" type="Node3D" unique_id=1378773574]
+script = ExtResource("1_quc8i")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=316796150]
 

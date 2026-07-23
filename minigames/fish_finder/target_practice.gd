@@ -1,5 +1,5 @@
 extends MinigameBase
-const TARGET_SCENE = preload("res://minigames/Target.tscn")
+const TARGET_SCENE = preload("res://minigames/fish_finder/Target.tscn")
 var targets_remaining: int = 3
 var speed_multiplier: float = 1.0
 var spawn_positions: Array[Vector3] = [

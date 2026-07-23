@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://f1g584e87ilt"]
 
 [ext_resource type="PackedScene" uid="uid://bomdwy4fiasgr" path="res://character.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://h658joh5j7ur" path="res://minigames/StartTarget.tscn" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://h658joh5j7ur" path="res://minigames/start_game/StartTarget.tscn" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://b847k3t4yc5lw" path="res://level_manager.gd" id="3_h2yge"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbh3u"]
