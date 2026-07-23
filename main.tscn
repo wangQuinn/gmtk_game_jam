@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://f1g584e87ilt"]
 
 [ext_resource type="PackedScene" uid="uid://bomdwy4fiasgr" path="res://character.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://h658joh5j7ur" path="res://minigames/StartTarget.tscn" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://b847k3t4yc5lw" path="res://level_manager.gd" id="3_h2yge"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbh3u"]
@@ -62,9 +63,21 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "+"
 
+[node name="Label2" type="Label" parent="HUD" unique_id=612206860]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+
 [node name="MinigameContainer" type="Node3D" parent="." unique_id=1563790441]
 
-[node name="LevelManager" type="Node" parent="." unique_id=344320842 node_paths=PackedStringArray("minigame_container", "character")]
+[node name="LevelManager" type="Node" parent="." unique_id=344320842 node_paths=PackedStringArray("minigame_container", "character", "level_label", "start_target")]
 script = ExtResource("3_h2yge")
 minigame_container = NodePath("../MinigameContainer")
 character = NodePath("../character")
+level_label = NodePath("../HUD/Label2")
+start_target = NodePath("../Target")
+
+[node name="Target" parent="." unique_id=779861654 instance=ExtResource("3_1bvp3")]

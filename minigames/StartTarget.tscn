@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://h658joh5j7ur"]
+
+[ext_resource type="Script" uid="uid://5mn8eeulw3om" path="res://minigames/start_target.gd" id="1_qolal"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4ugoo"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4ugoo"]
+
+[node name="Target" type="Area3D" unique_id=779861654]
+script = ExtResource("1_qolal")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=793158579]
+mesh = SubResource("SphereMesh_4ugoo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=796536654]
+shape = SubResource("SphereShape3D_4ugoo")
