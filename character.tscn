@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bhi45vdvc5m8v" path="res://character.gd" id="1_glpr6"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_pjt0s"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1say5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fbh3u"]
@@ -10,7 +12,14 @@
 script = ExtResource("1_glpr6")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1221573786]
-transform = Transform3D(0.99999774, -0.0016819319, -0.0013326125, 0.0013994409, 0.98193944, -0.18919043, 0.0016267501, 0.18918814, 0.98193955, 0, 2.0685675, 0)
+transform = Transform3D(0.99999774, -0.0016819319, -0.0013326125, 0.0013994409, 0.98193944, -0.18919043, 0.0016267501, 0.18918814, 0.98193955, 0, 1.6497486, 0)
+
+[node name="GunMount" type="Node3D" parent="Camera3D" unique_id=914306758]
+transform = Transform3D(1.0000006, 2.910383e-11, 5.820766e-10, 5.529728e-10, 1, -2.9802322e-08, 3.4924597e-10, -7.4505806e-08, 1.0000006, -0.81534797, -0.4714477, 0.6400264)
+
+[node name="Gun" type="MeshInstance3D" parent="Camera3D/GunMount" unique_id=1052622407]
+transform = Transform3D(1.0000006, 6.1118044e-10, 0, -2.910383e-11, 1, 0, 1.1641532e-10, -7.4505806e-08, 1, 1.469806, -0.21914953, -1.1265581)
+mesh = SubResource("BoxMesh_pjt0s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1100263872]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0685675, 0)
