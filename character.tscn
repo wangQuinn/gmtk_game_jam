@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bomdwy4fiasgr"]
 
 [ext_resource type="Script" uid="uid://bhi45vdvc5m8v" path="res://character.gd" id="1_glpr6"]
+[ext_resource type="Texture2D" uid="uid://brefhkbjdlopw" path="res://gun.png" id="2_pjt0s"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pjt0s"]
 
@@ -19,7 +20,25 @@ transform = Transform3D(1.0000006, 2.910383e-11, 5.820766e-10, 5.529728e-10, 1, 
 
 [node name="Gun" type="MeshInstance3D" parent="Camera3D/GunMount" unique_id=1052622407]
 transform = Transform3D(1.0000006, 6.1118044e-10, 0, -2.910383e-11, 1, 0, 1.1641532e-10, -7.4505806e-08, 1, 1.469806, -0.21914953, -1.1265581)
+visible = false
 mesh = SubResource("BoxMesh_pjt0s")
+
+[node name="GunUI" type="CanvasLayer" parent="Camera3D" unique_id=46612923]
+
+[node name="GunTexture" type="TextureRect" parent="Camera3D/GunUI" unique_id=964202567]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1092.0
+offset_top = -715.0
+offset_right = 60.0
+offset_bottom = 5.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.9850125, 1.1426144)
+texture = ExtResource("2_pjt0s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1100263872]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0685675, 0)

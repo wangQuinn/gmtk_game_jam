@@ -22,3 +22,7 @@ func finish_minigame() -> void:
 
 func _on_target_hit(_target: Node) -> void:
 	pass
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().quit()

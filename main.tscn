@@ -15,13 +15,13 @@ points = PackedVector3Array(-3.5793648, -0.07986507, -5.077377, 3.5634918, 0.078
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_yr74j"]
 
-[sub_resource type="Sky" id="Sky_fbh3u"]
+[sub_resource type="Sky" id="Sky_h2yge"]
 sky_material = SubResource("PhysicalSkyMaterial_yr74j")
 
 [sub_resource type="Environment" id="Environment_1say5"]
 background_mode = 1
 background_color = Color(0.9999376, 0.53110206, 0.46594632, 1)
-sky = SubResource("Sky_fbh3u")
+sky = SubResource("Sky_h2yge")
 ambient_light_energy = 5.86
 
 [node name="Main_tscn" type="Node3D" unique_id=1229234287]

@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://nwuhfp0aqr0u"]
+
+[ext_resource type="Script" uid="uid://ctd8nyu2rqpcv" path="res://minigames/timer_countdown/timer_countdown.gd" id="1_g7llf"]
+[ext_resource type="PackedScene" uid="uid://bomdwy4fiasgr" path="res://character.tscn" id="1_npkh1"]
+[ext_resource type="Script" uid="uid://dwduu4xog8yqq" path="res://minigames/timer_countdown/target.gd" id="3_g3ueg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g7llf"]
+albedo_color = Color(0.089563765, 0.5009525, 0.3467506, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g3ueg"]
+size = Vector3(24.229767, 0.001, 27.670837)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ec6ue"]
+points = PackedVector3Array(-3.5793648, -0.07986507, -5.077377, 3.5634918, 0.07886508, 5.077377, 3.5634918, -0.07986507, 5.077377, 3.5634918, 0.07886508, -5.077377, -3.5793648, 0.07886508, 5.077377, -3.5793648, -0.07986507, 5.077377, 3.5634918, -0.07986507, -5.077377, -3.5793648, 0.07886508, -5.077377)
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_djnjx"]
+
+[sub_resource type="Sky" id="Sky_fbh3u"]
+sky_material = SubResource("PhysicalSkyMaterial_djnjx")
+
+[sub_resource type="Environment" id="Environment_7rov4"]
+background_mode = 1
+background_color = Color(0.8708623, 0.6335284, 0.31702745, 1)
+sky = SubResource("Sky_fbh3u")
+ambient_light_energy = 5.86
+
+[sub_resource type="SphereMesh" id="SphereMesh_1say5"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g7llf"]
+points = PackedVector3Array(0.4578707, 0.19807906, 0.01578243, -0.48873997, -0.09168735, -0.04518683, -0.47150937, -0.1370268, -0.090701535, 0.07635914, -0.33327514, 0.36417928, 0.13656896, -0.33242497, -0.3469059, -0.15161654, 0.47198188, -0.060245913, -0.10534735, 0.21193622, 0.43966028, -0.045016855, 0.19809827, -0.4564163, 0.4090765, -0.15116782, 0.2425159, -0.27137637, -0.37776056, 0.18187061, 0.41147974, -0.07598096, -0.27324012, 0.19819722, -0.4561612, -0.04493101, -0.24064063, -0.33167413, -0.2857683, 0.22713655, 0.2567203, 0.36304116, 0.22752243, 0.42360392, -0.13548777, -0.37899047, 0.060702223, 0.31946206, -0.40674683, 0.18104935, -0.22569102, -0.014631338, -0.09176946, 0.49022886, -0.37785473, 0.30279276, 0.121712334, 0.046232317, 0.45601088, 0.19818504, -0.22746402, -0.060786348, -0.44034815, 0.22845526, 0.06072284, -0.43988743, -0.09113759, -0.48924586, -0.045174047, 0.44186506, -0.22821625, -0.044958085, 0.31717873, 0.24121423, -0.30081153, -0.044848714, 0.39473665, -0.30295488, -0.316348, -0.19622163, 0.33255145, 0.19844188, -0.03042933, 0.45723665, 0.061471395, -0.1522456, -0.47130713, 0.36308852, 0.25670764, 0.22707908, 0.15213433, -0.43948856, 0.18237916, -0.21072462, 0.36227608, 0.2722302)
+
+[node name="TimerCountdown" type="Node3D" unique_id=125279668]
+script = ExtResource("1_g7llf")
+
+[node name="floor" type="StaticBody3D" parent="." unique_id=274662198]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=859979921]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9438629, -0.4995, -4.4497986)
+material_override = SubResource("StandardMaterial3D_g7llf")
+mesh = SubResource("BoxMesh_g3ueg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=1694055311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.4995, -3.5)
+shape = SubResource("ConvexPolygonShape3D_ec6ue")
+
+[node name="sun" type="DirectionalLight3D" parent="." unique_id=260047483]
+transform = Transform3D(1, 0, 0, 0, 0.72470725, 0.68905693, 0, -0.68905693, 0.72470725, 0, 5.712985, 5.877101)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="sun" unique_id=1875122893]
+environment = SubResource("Environment_7rov4")
+
+[node name="character" parent="." unique_id=1712112248 instance=ExtResource("1_npkh1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.16659617, -4)
+
+[node name="Label3D" type="Label3D" parent="." unique_id=201585679]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+text = "TEST COUNTER
+"
+
+[node name="Target" type="Area3D" parent="." unique_id=523655425]
+script = ExtResource("3_g3ueg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Target" unique_id=1916941622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+mesh = SubResource("SphereMesh_1say5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Target" unique_id=987104530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+shape = SubResource("ConvexPolygonShape3D_g7llf")
