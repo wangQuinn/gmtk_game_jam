@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bhi45vdvc5m8v" path="res://character.gd" id="1_glpr6"]
 [ext_resource type="Texture2D" uid="uid://brefhkbjdlopw" path="res://gun.png" id="2_pjt0s"]
+[ext_resource type="AudioStream" uid="uid://ccwgfnmup61wc" path="res://vine-boom.mp3" id="3_wa5vi"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_pjt0s"]
 
@@ -48,3 +49,6 @@ metadata/_edit_group_ = true
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1761570904]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("CapsuleMesh_fbh3u")
+
+[node name="boom" type="AudioStreamPlayer" parent="." unique_id=592748434]
+stream = ExtResource("3_wa5vi")
