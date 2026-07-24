@@ -1,16 +1,14 @@
 [gd_scene format=3 uid="uid://b1eddhyn08yq8"]
 
 [ext_resource type="Script" uid="uid://dyhgc18pxafml" path="res://minigames/fish_finder/target.gd" id="1_5cjd1"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_4ugoo"]
+[ext_resource type="PackedScene" uid="uid://c6ynm4dg65ogs" path="res://minigames/fish_finder/fish.glb" id="2_lc74s"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4ugoo"]
 
 [node name="Target" type="Area3D" unique_id=779861654]
 script = ExtResource("1_5cjd1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=793158579]
-mesh = SubResource("SphereMesh_4ugoo")
+[node name="fish" parent="." unique_id=1729240679 instance=ExtResource("2_lc74s")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=796536654]
 shape = SubResource("SphereShape3D_4ugoo")

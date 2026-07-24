@@ -2,5 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bkes2gfws12cr" path="res://minigames/fish_finder/target_practice.gd" id="1_nchf0"]
 
+[sub_resource type="Environment" id="Environment_4ugoo"]
+background_mode = 1
+background_color = Color(0.085961975, 0.16668576, 0.32120207, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.33867997, 0.43850672, 0.6657618, 1)
+fog_enabled = true
+fog_light_color = Color(0.13417366, 0.24305356, 0.4451285, 1)
+
 [node name="TargetPractice" type="Node3D" unique_id=167084688]
 script = ExtResource("1_nchf0")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=404567378]
+environment = SubResource("Environment_4ugoo")
