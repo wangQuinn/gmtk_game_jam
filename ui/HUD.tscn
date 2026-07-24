@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bdshrq6fuv5te"]
+
+[ext_resource type="Script" uid="uid://dx6yflvvelf15" path="res://ui/hud.gd" id="1_1x8ju"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1114800352]
+script = ExtResource("1_1x8ju")
+
+[node name="CountdownLabel" type="Label" parent="." unique_id=1685459837]
+offset_left = 1048.0
+offset_right = 1152.0
+offset_bottom = 48.0
+metadata/_edit_group_ = true

@@ -7,7 +7,7 @@ extends Node
 var all_minigames: Array[String] = [
 	"res://minigames/fish_finder/TargetPractice.tscn",
 	"res://minigames/cavity_shooter/cavity_shooter.tscn",
-
+	#"res://minigames/timer_countdown/timer_countdown.tscn",
 ]
 
 var current_level = 10
@@ -48,6 +48,7 @@ func _load_next_minigame() -> void:
 		_level_complete()
 		return
 	var path = queue.pop_front()
+	print("Selected minigame: ", path)
 	var scene = load(path).instantiate()
 	minigame_container.add_child(scene)
 	if character.has_signal("target_hit") and scene.has_method("_on_target_hit"):
@@ -67,3 +68,7 @@ func _level_complete() -> void:
 		start_level(current_level)
 	else:
 		print("Game complete!")
+		
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().quit()

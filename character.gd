@@ -8,6 +8,7 @@ var yaw = 0.0
 var pitch = 0.0
 
 @onready var camera: Camera3D = $Camera3D
+@onready var boom: AudioStreamPlayer = $boom
 
 func _ready():
 	get_window().grab_focus()
@@ -28,6 +29,8 @@ func _input(event):
 		shoot()
 
 func shoot():
+	
+	boom.play() #vineboom
 	var from = camera.global_transform.origin
 	var to = from + camera.global_transform.basis.z * -100.0
 
