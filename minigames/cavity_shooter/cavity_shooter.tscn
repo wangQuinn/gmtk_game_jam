@@ -1,15 +1,22 @@
 [gd_scene format=3 uid="uid://buk3jgpgawidx"]
 
-[ext_resource type="Script" uid="uid://5eqovrajpi5u" path="res://minigames/cavity_shooter/cavity_shooter.gd" id="1_quc8i"]
+[ext_resource type="PackedScene" uid="uid://ckdnydo8ug5ld" path="res://minigames/cavity_shooter/assets/head.glb" id="1_quc8i"]
+[ext_resource type="Script" uid="uid://5eqovrajpi5u" path="res://minigames/cavity_shooter/cavity_shooter.gd" id="2_d4vo3"]
+[ext_resource type="Script" uid="uid://bqf7rv5h8lobe" path="res://minigames/cavity_shooter/mouth_control.gd" id="3_kh0bv"]
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_cneui"]
+[node name="CavityShooter" unique_id=1224604069 instance=ExtResource("1_quc8i")]
+transform = Transform3D(-0.98964393, 0, -0.14354411, 0, 1, 0, 0.14354411, 0, -0.98964393, 0, 0, 0)
+script = ExtResource("2_d4vo3")
 
-[node name="CavityShooter" type="Node3D" unique_id=1378773574]
-script = ExtResource("1_quc8i")
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="0" unique_id=1302491029]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=316796150]
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1527377234) index="0" unique_id=620531255]
+bones/1/rotation = Quaternion(0.6992843, 0.08898727, -0.47859934, 0.52347434)
+bones/2/rotation = Quaternion(0.6563996, 0.09481422, -0.46794507, 0.58410376)
+bones/3/rotation = Quaternion(0.6314424, 0.09437899, -0.46612722, 0.612453)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=329016665]
+[node name="Head" parent="Armature/Skeleton3D" index="0" unique_id=134358823]
+transform = Transform3D(3.6799679, 0, -2.793248, 0, 4.619999, 0, 2.793248, 0, 3.6799679, -0.97749114, 1.0145899, -1.7979866)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2015604550]
-mesh = SubResource("CylinderMesh_cneui")
+[node name="MouthControl" type="Node3D" parent="." index="3" unique_id=1131242324]
+script = ExtResource("3_kh0bv")

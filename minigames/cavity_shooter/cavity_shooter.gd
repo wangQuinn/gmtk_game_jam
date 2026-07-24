@@ -1,41 +1,44 @@
-#extends MinigameBase
-#
-#var speed_multiplier: float = 1.0
-#
-#func setup(level: int, speed: float = 1.0) -> void:
-	#speed_multiplier = speed
-	#super.setup(level)
-#
-#func start_minigame() -> void:
-	#super.start_minigame()
-	## spawn your cavity-shooter-specific targets/objects here
-	## connect their "hit" signals to a handler, similar to fish_finder's _on_target_hit
-#
-#func _on_target_hit(_target: Node) -> void:
-	## decrement remaining count, call finish_minigame() when done
-	#pass
-	
-	
 extends MinigameBase
+## Minimal version: shows the head, cycles mouth open/close.
+## Ends automatically after a fixed duration.
+
+@export var mouth_controller_path: NodePath = "MouthControl"
+@export var stay_duration: float = 7.0
 
 var speed_multiplier: float = 1.0
-var countdown_time: float = 5.0  # seconds — placeholder, tune later
 var time_remaining: float = 0.0
-var is_running: bool = false
+
+@onready var mouth_controller: Node = get_node(mouth_controller_path)
+
 
 func setup(level: int, speed: float = 1.0) -> void:
 	speed_multiplier = speed
 	super.setup(level)
 
+
 func start_minigame() -> void:
 	super.start_minigame()
-	time_remaining = countdown_time
-	is_running = true
+	time_remaining = stay_duration
+
+	mouth_controller.mouth_opened.connect(_on_mouth_opened)
+	mouth_controller.mouth_closed.connect(_on_mouth_closed)
+	mouth_controller.start_cycle(speed_multiplier)
+
 
 func _process(delta: float) -> void:
-	if not is_running:
+	if not _is_active:
 		return
+
 	time_remaining -= delta
 	if time_remaining <= 0.0:
-		is_running = false
+		time_remaining = 0.0
+		mouth_controller.stop_cycle()
 		finish_minigame()
+
+
+func _on_mouth_opened() -> void:
+	print("Mouth opened")
+
+
+func _on_mouth_closed() -> void:
+	print("Mouth closed")
