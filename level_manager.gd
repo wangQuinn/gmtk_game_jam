@@ -9,7 +9,7 @@ extends Node
 var all_minigames: Array[String] = [
 	"res://minigames/fish_finder/TargetPractice.tscn",
 	"res://minigames/cavity_shooter/cavity_shooter.tscn",
-	#"res://minigames/timer_countdown/timer_countdown.tscn",
+	"res://minigames/fire/fire.tscn",
 ]
 
 var current_level = 10

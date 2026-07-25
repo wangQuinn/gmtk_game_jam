@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://yuvib6cmulou"]
+
+[ext_resource type="Script" uid="uid://ujtyjf8mmfik" path="res://minigames/fire/fire.gd" id="1_r6xxw"]
+
+[sub_resource type="Environment" id="Environment_1say5"]
+background_mode = 1
+background_color = Color(0.89935976, 0.64285374, 0.42905033, 1)
+
+[node name="Node3D" type="Node3D" unique_id=972606029]
+script = ExtResource("1_r6xxw")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1265903576]
+environment = SubResource("Environment_1say5")
