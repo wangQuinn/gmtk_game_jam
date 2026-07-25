@@ -5,7 +5,9 @@ extends Node
 @export var start_target: Area3D   
 @export var level_time_limit: float = 30.0 # seconds per level
 @export var timer_label: Label #timer label
-@onready var level_label2: Label = $"../HUD/LevelLabel"
+
+@onready var lose_label: Label = $"../HUD/Control/LoseLabel"
+@onready var level_label2: Label = $"../HUD/Control/LevelLabel"
 @onready var level_timer: Timer = Timer.new()
 
 var all_minigames: Array[String] = [
@@ -16,11 +18,12 @@ var all_minigames: Array[String] = [
 ]
 
 var minigame_times: Dictionary = {
-	"res://minigames/fish_finder/TargetPractice.tscn" : 10.0,
-	"res://minigames/cavity_shooter/cavity_shooter.tscn" : 20.0,
-	"res://minigames/fire/fire.tscn": 20.0,
-	"res://minigames/soul_tracker/soul_tracker.tscn": 15.0,
+	"res://minigames/fish_finder/TargetPractice.tscn" : [10.0, "Shoot the Odd Fish!"],
+	"res://minigames/cavity_shooter/cavity_shooter.tscn" : [20.0, "Be a Dentist!"],
+	"res://minigames/fire/fire.tscn": [20.0, "Put out the fire!"] ,
+	"res://minigames/soul_tracker/soul_tracker.tscn": [15.0, "Ghosts! Happy!"],
 }
+
 
 var current_level = 9
 var queue: Array = []
@@ -30,6 +33,7 @@ func _ready() -> void:
 	character.set_physics_process(false)
 	start_target.start_pressed.connect(_on_start_pressed)
 	level_label2.hide()
+	lose_label.hide()
 	
 	# nothing else happens until the sphere is shot
 	add_child(level_timer)
@@ -67,11 +71,7 @@ func show_level_intro(level: int) -> void:
 	tween.tween_interval(0.8)
 	tween.tween_property(level_label2, "position", end_pos, 0.4)\
 		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
-
-	
 	await tween.finished
-	
-	
 	level_label2.hide()
 	level_label2.position = target_pos
 	
@@ -86,7 +86,12 @@ func _load_next_minigame() -> void:
 	var scene = load(path).instantiate()
 	minigame_container.add_child(scene)
 	character.hold_mode = (path == "res://minigames/fire/fire.tscn")
-	var time_for_level = minigame_times.get(path, level_time_limit)
+	var time_for_level = minigame_times.get(path, level_time_limit)[0]
+	var text_for_level = minigame_times.get(path, "SHOOT!")[1]
+	lose_label.text = text_for_level
+	lose_label.show()
+	await get_tree().create_timer(1).timeout
+	lose_label.hide()
 	level_timer.start(time_for_level)
 	timer_label.show()
 	if character.has_signal("target_hit") and scene.has_method("_on_target_hit"):
@@ -112,9 +117,13 @@ func _level_complete() -> void:
 func _on_level_timeout() -> void:
 	timer_label.hide()
 	print("YOU LOOSE.")
+	
 	queue.clear()
 	for child in minigame_container.get_children():
 		child.queue_free()
+	lose_label.show()
+	await get_tree().create_timer(1.5).timeout
+	lose_label.hide()
 	current_level = min(current_level + 1, 10)
 	start_level(current_level)
 	
