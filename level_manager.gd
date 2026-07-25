@@ -4,6 +4,8 @@ extends Node
 @export var level_label: Label
 @export var start_target: Area3D   # NEW — drag StartTarget here
 
+@onready var level_label2: Label = $"../HUD/LevelLabel"
+
 var all_minigames: Array[String] = [
 	"res://minigames/fish_finder/TargetPractice.tscn",
 	"res://minigames/cavity_shooter/cavity_shooter.tscn",
@@ -17,6 +19,8 @@ func _ready() -> void:
 	character.set_process(false)
 	character.set_physics_process(false)
 	start_target.start_pressed.connect(_on_start_pressed)
+	level_label2.hide()
+	
 	# nothing else happens until the sphere is shot
 
 func _on_start_pressed() -> void:
@@ -32,15 +36,29 @@ func start_level(level: int) -> void:
 	show_level_intro(level)
 
 func show_level_intro(level: int) -> void:
-	level_label.show() 
-	level_label.text = "LEVEL %d" % level
-	level_label.modulate.a = 0.0
+	level_label2.show() 
+	
+	level_label2.text = "LEVEL %d" % level
+	
+	var target_pos: Vector2 = level_label2.position
+	var start_pos: Vector2 = target_pos + Vector2(0,-200)
+	var end_pos: Vector2 = target_pos + Vector2(0,500) 
+	level_label2.position = start_pos
+	level_label2.modulate.a = 1.0  # no fade this time, it's a slide
+
 	var tween = create_tween()
-	tween.tween_property(level_label, "modulate:a", 1.0, 0.4)
+	tween.tween_property(level_label2, "position", target_pos, 0.4)\
+		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	tween.tween_interval(0.8)
-	tween.tween_property(level_label, "modulate:a", 0.0, 0.4)
+	tween.tween_property(level_label2, "position", end_pos, 0.4)\
+		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+
+	
 	await tween.finished
+	
+	level_label2.position = target_pos
 	level_label.hide()
+	
 	_load_next_minigame()
 
 func _load_next_minigame() -> void:
