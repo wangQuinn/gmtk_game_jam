@@ -1,3 +1,21 @@
 [gd_scene format=3 uid="uid://cyledug47okoh"]
 
-[node name="Tooth" type="Node3D" unique_id=894172691]
+[ext_resource type="Script" uid="uid://cnkh5ugeeuof7" path="res://minigames/cavity_shooter/tooth.gd" id="1_8dn6h"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kolr6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8dn6h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kolr6"]
+
+[node name="Tooth" type="Area3D" unique_id=1940351821]
+script = ExtResource("1_8dn6h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=438384593]
+transform = Transform3D(0.55653673, 0, 0, 0, 0.6915126, 0, 0, 0, 0.24816741, 0, 0, 0)
+mesh = SubResource("BoxMesh_kolr6")
+surface_material_override/0 = SubResource("StandardMaterial3D_8dn6h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1538664044]
+transform = Transform3D(0.5488174, 0, 0, 0, 0.6991371, 0, 0, 0, 0.2652311, 0, 0, 0)
+shape = SubResource("BoxShape3D_kolr6")

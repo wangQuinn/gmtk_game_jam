@@ -58,3 +58,7 @@ func register_cavity_hit(_cavity: Node) -> void:
 		print("All cavities cleared, finishing minigame")
 		mouth_controller.stop_cycle()
 		finish_minigame()
+		
+func register_tooth_hit(_tooth: Node) -> void:
+	# hitting a good tooth does nothing for now -- add a "miss" sound/penalty later if you want
+	pass
