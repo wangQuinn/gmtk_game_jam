@@ -33,4 +33,4 @@ func play_intro() -> void:
 	_on_intro_finished()
 
 func _on_intro_finished() -> void:
-	get_tree().change_scene_to_file("res://Main.tscn")  # or wherever your MainMenu/game goes next
+	get_tree().change_scene_to_file("res://minigames/comic_story/ComicIntro.tscn")

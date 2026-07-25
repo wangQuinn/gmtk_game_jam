@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://chgtyi0jsj4ab"]
+
+[ext_resource type="Script" uid="uid://dje5dj82mrxp0" path="res://minigames/comic_story/comic_intro.gd" id="1_er36s"]
+[ext_resource type="Texture2D" uid="uid://fqgnxx0wpo0" path="res://minigames/comic_story/panel1.png" id="2_0lxnx"]
+[ext_resource type="Texture2D" uid="uid://ch7nujdpax8tk" path="res://minigames/comic_story/panel2.png" id="3_64nwg"]
+[ext_resource type="Texture2D" uid="uid://bkmyimmu2u55v" path="res://minigames/comic_story/panel3.png" id="4_jdfhv"]
+[ext_resource type="Texture2D" uid="uid://bdhpcyqhd2ds4" path="res://minigames/comic_story/panel4.png" id="5_eek8m"]
+[ext_resource type="Texture2D" uid="uid://cti77ffxgidkj" path="res://minigames/comic_story/panel5.png" id="6_d3csl"]
+[ext_resource type="Texture2D" uid="uid://36fi7cdid85n" path="res://minigames/comic_story/panel6.png" id="7_eeral"]
+[ext_resource type="Texture2D" uid="uid://ddlihooxx5v2r" path="res://minigames/comic_story/panel7.png" id="8_vq1iw"]
+
+[node name="ComicScene" type="Control" unique_id=1346623073]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_er36s")
+
+[node name="panel1" type="TextureRect" parent="." unique_id=799465924]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_0lxnx")
+
+[node name="panel2" type="TextureRect" parent="." unique_id=1615905642]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_64nwg")
+
+[node name="panel3" type="TextureRect" parent="." unique_id=1000646455]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_jdfhv")
+
+[node name="panel4" type="TextureRect" parent="." unique_id=1210455702]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_eek8m")
+
+[node name="panel5" type="TextureRect" parent="." unique_id=1824402362]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_d3csl")
+
+[node name="panel6" type="TextureRect" parent="." unique_id=1248862849]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_eeral")
+
+[node name="panel7" type="TextureRect" parent="." unique_id=1482062556]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_vq1iw")
+
+[node name="TextScreen" type="Control" parent="." unique_id=1906609072]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StoryLabel" type="RichTextLabel" parent="TextScreen" unique_id=1735404644]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
