@@ -56,8 +56,9 @@ func show_level_intro(level: int) -> void:
 	
 	await tween.finished
 	
+	
+	level_label2.hide()
 	level_label2.position = target_pos
-	level_label.hide()
 	
 	_load_next_minigame()
 
