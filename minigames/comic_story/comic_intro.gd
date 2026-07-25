@@ -7,9 +7,8 @@ extends Control
 @onready var text_screen: Control = $TextScreen
 @onready var story_label: RichTextLabel = $TextScreen/StoryLabel
 
-@export var reveal_interval: float = 0.5   # time between panel reveals
-@export var story_text: String = "Your story text goes here..."
-
+@export var reveal_interval: float = 0.3   # time between panel reveals
+@export var story_text: String = "Kitty has been bad, to hell he goes"
 func _ready() -> void:
 	for p in panels:
 		p.modulate.a = 0.0   # start all panels invisible

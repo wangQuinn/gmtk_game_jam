@@ -61,7 +61,24 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="StoryLabel" type="RichTextLabel" parent="TextScreen" unique_id=1735404644]
+[node name="ColorRect" type="ColorRect" parent="TextScreen" unique_id=1886516196]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1163.0
+offset_bottom = 660.0
+color = Color(1, 0.9529412, 0.85490197, 1)
+
+[node name="StoryLabel" type="RichTextLabel" parent="TextScreen" unique_id=1735404644]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 4.4750004
+anchor_top = 2.6750002
+anchor_right = 24.475
+anchor_bottom = 13.185
+offset_left = -1.5258789e-05
+offset_bottom = -6.1035156e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "
+"
