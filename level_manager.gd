@@ -70,6 +70,7 @@ func _load_next_minigame() -> void:
 	print("Selected minigame: ", path)
 	var scene = load(path).instantiate()
 	minigame_container.add_child(scene)
+	character.hold_mode = (path == "res://minigames/fire/fire.tscn")
 	if character.has_signal("target_hit") and scene.has_method("_on_target_hit"):
 		character.target_hit.connect(scene._on_target_hit)
 	scene.minigame_finished.connect(_on_minigame_finished.bind(scene))

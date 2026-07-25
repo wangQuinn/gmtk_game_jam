@@ -2,10 +2,13 @@ extends Node3D
 
 var mouse_sensitivity = 0.002
 var yaw_limit = deg_to_rad(360)   # how far left/right you can look
-var pitch_limit = deg_to_rad(30) # how far up/down you can look
+var pitch_limit = deg_to_rad(50) # how far up/down you can look
 
 var yaw = 0.0
 var pitch = 0.0
+var spraying = false
+
+@export var hold_mode = false 
 
 @onready var camera: Camera3D = $Camera3D
 @onready var boom: AudioStreamPlayer = $boom
@@ -26,6 +29,11 @@ func _input(event):
 		camera.rotation.x = pitch
 
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+
+		shoot()
+		
+func _physics_process(_delta):
+	if hold_mode and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		shoot()
 
 func shoot():

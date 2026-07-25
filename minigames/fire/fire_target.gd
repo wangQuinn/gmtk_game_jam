@@ -1,7 +1,7 @@
 extends Area3D
 signal extinguished
 
-@export var hits_to_extinguish: int = 1
+@export var hits_to_extinguish: int = 30
 var hits := 0
 
 func _ready() -> void:
