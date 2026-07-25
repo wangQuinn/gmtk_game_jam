@@ -12,16 +12,24 @@ var orbit_height: float = 1.0
 var height_bob_amount: float = 0.3
 var height_bob_speed: float = 1.5
 
+
 func _ready() -> void:
-	add_to_group("targets")   # <-- this was missing
+	add_to_group("targets")
+
 
 func _process(delta: float) -> void:
 	orbit_angle += orbit_speed * delta
 	var x = orbit_center.x + cos(orbit_angle) * orbit_radius
 	var z = orbit_center.z + sin(orbit_angle) * orbit_radius
 	var y = orbit_height + sin(Time.get_ticks_msec() / 1000.0 * height_bob_speed) * height_bob_amount
-	global_position = Vector3(x, y, z)
-	look_at(orbit_center, Vector3.UP)
+	var new_position = Vector3(x, y, z)
+
+	var direction = (new_position - global_position)
+	if direction.length() > 0.001:
+		look_at(global_position + direction, Vector3.UP)
+		rotate_y(-PI / 2) 
+
+	global_position = new_position
 
 func setup_orbit(center: Vector3, radius: float, start_angle: float, speed: float, height: float) -> void:
 	orbit_center = center
@@ -32,11 +40,23 @@ func setup_orbit(center: Vector3, radius: float, start_angle: float, speed: floa
 
 func mark_as_target(is_target: bool) -> void:
 	is_correct_target = is_target
-	var mesh = get_node_or_null("MeshInstance3D")
-	if mesh:
-		var mat = StandardMaterial3D.new()
-		mat.albedo_color = Color.GOLD if is_target else Color.STEEL_BLUE
-		mesh.material_override = mat
+	var mesh = get_node_or_null("fish/Fih")
+	if mesh == null:
+		print("WARNING: mesh not found for", name)
+		return
+	var original_mat = mesh.get_active_material(0)
+	if original_mat == null:
+		print("WARNING: no material on mesh for", name)
+		return
+	var mat = original_mat.duplicate()
+	if is_target:
+		mat.emission_enabled = true
+		mat.emission = Color(1.0, 0.85, 0.1)
+		mat.emission_energy_multiplier = 3.0
+	else:
+		mat.emission_enabled = false
+	mesh.set_surface_override_material(0, mat)
+
 
 func hit() -> void:
 	emit_signal("target_hit", self)
