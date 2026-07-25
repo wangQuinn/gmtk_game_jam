@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bomdwy4fiasgr" path="res://character.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://h658joh5j7ur" path="res://minigames/start_game/StartTarget.tscn" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://b847k3t4yc5lw" path="res://level_manager.gd" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://doumb6l874beu" path="res://source/Separate_assets_glb/Separate_assets_glb/Cliff_004.glb" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://bm8ye7o8atdvn" path="res://source/Inferno_World_free.glb" id="5_lquwl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbh3u"]
 albedo_color = Color(0.089563765, 0.5009525, 0.3467506, 1)
@@ -23,6 +25,11 @@ background_mode = 1
 background_color = Color(0.9999376, 0.53110206, 0.46594632, 1)
 sky = SubResource("Sky_h2yge")
 ambient_light_energy = 5.86
+fog_enabled = true
+fog_light_color = Color(0.52023154, 0.24206945, 0.27408752, 1)
+fog_light_energy = 0.37
+fog_sun_scatter = 0.31
+fog_sky_affect = 0.316
 
 [sub_resource type="FontFile" id="FontFile_h2yge"]
 cache/0/variation_coordinates = {}
@@ -378,6 +385,7 @@ cache/0/91/0/scale = 1.0
 [node name="Main_tscn" type="Node3D" unique_id=1229234287]
 
 [node name="floor" type="StaticBody3D" parent="." unique_id=1297136965]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=939648775]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9438629, -0.4995, -4.4497986)
@@ -391,11 +399,14 @@ shape = SubResource("ConvexPolygonShape3D_7dm0k")
 [node name="character" parent="." unique_id=1712112248 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.16659617, -4)
 
-[node name="sun" type="DirectionalLight3D" parent="." unique_id=767505923]
-transform = Transform3D(1, 0, 0, 0, 0.72470725, 0.68905693, 0, -0.68905693, 0.72470725, 0, 5.712985, 5.877101)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="sun" unique_id=2112954550]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2112954550]
 environment = SubResource("Environment_1say5")
+
+[node name="sun" type="DirectionalLight3D" parent="." unique_id=767505923]
+transform = Transform3D(1, 0, 0, 0, 0.72470725, 0.68905693, 0, -0.68905693, 0.72470725, 28, 17.712986, 59.8771)
+light_color = Color(0.8846296, 0.85224754, 0.99761707, 1)
+light_indirect_energy = 2.047
+light_volumetric_fog_energy = 0.985
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=653140426]
 
@@ -460,3 +471,9 @@ start_target = NodePath("../Target")
 timer_label = NodePath("../HUD/timer")
 
 [node name="Target" parent="." unique_id=779861654 instance=ExtResource("3_1bvp3")]
+
+[node name="Inferno_World_free" parent="." unique_id=635064973 instance=ExtResource("5_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, -148, -16)
+
+[node name="Cliff_0042" parent="." unique_id=1543250139 instance=ExtResource("5_7mycd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67, -146.99998, 8)
