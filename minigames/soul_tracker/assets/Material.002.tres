@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cj5ikhww6lbm4"]
+
+[ext_resource type="Texture2D" uid="uid://cn2eboy3evrnw" path="res://minigames/soul_tracker/assets/ghostAngry_Material.png" id="1_wfqn4"]
+
+[resource]
+resource_name = "Material.002"
+cull_mode = 2
+albedo_texture = ExtResource("1_wfqn4")
+roughness = 0.5
+metadata/_gltf_primary_texture_coord = 0

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://ddkkdu8owniwe"]
+
+[ext_resource type="Script" uid="uid://cc0skio81vj54" path="res://minigames/soul_tracker/soul.gd" id="1_26d4q"]
+[ext_resource type="Material" uid="uid://cj5ikhww6lbm4" path="res://minigames/soul_tracker/assets/Material.002.tres" id="2_4j6g3"]
+[ext_resource type="PackedScene" uid="uid://ckmu641cu3r7a" path="res://minigames/soul_tracker/assets/ghostAngry.glb" id="2_cfgul"]
+[ext_resource type="Material" uid="uid://3mputmf1p57x" path="res://minigames/soul_tracker/assets/Material.001.tres" id="2_wkryr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nj7q0"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_tow2k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nj7q0"]
+cull_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_4j6g3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_br0pb"]
+cull_mode = 2
+albedo_color = Color(0.30888867, 0.7299092, 0.94597524, 1)
+
+[node name="Soul" type="Area3D" unique_id=1077547660]
+script = ExtResource("1_26d4q")
+angry_material = ExtResource("2_4j6g3")
+happy_material = ExtResource("2_wkryr")
+
+[node name="ghostAngry" parent="." unique_id=543631265 instance=ExtResource("2_cfgul")]
+transform = Transform3D(0.21850292, 0, -0.55879915, 0, 0.6, 0, 0.55879915, 0, 0.21850292, 0, 1.0570967, 0)
+
+[node name="Cylinder" parent="ghostAngry" index="0" unique_id=1147783]
+transform = Transform3D(-0.56756836, 0, -0.0632835, 0, 1.0000001, 0, 0.035989836, 0, -0.9979957, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=261237535]
+transform = Transform3D(1.3284982, 0, 0.50149, 0, 1.42, 0, -0.50149, 0, 1.3284982, 0.01839614, 1.0488788, -0.0019962788)
+shape = SubResource("BoxShape3D_nj7q0")
+
+[node name="ProgressBar" type="Node3D" parent="." unique_id=782667024]
+
+[node name="BarBG" type="MeshInstance3D" parent="ProgressBar" unique_id=1638033227]
+transform = Transform3D(0.9249409, 0, 0.38011116, 0, 0.19504635, 0, -0.38011116, 0, 0.9249409, -0.20033601, 0.45694733, -0.32133833)
+mesh = SubResource("QuadMesh_tow2k")
+surface_material_override/0 = SubResource("StandardMaterial3D_nj7q0")
+
+[node name="FillAnchor" type="Node3D" parent="ProgressBar" unique_id=1291636923]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23290837, 0.45291275, -0.51165605)
+
+[node name="BarFill" type="MeshInstance3D" parent="ProgressBar/FillAnchor" unique_id=1110729429]
+transform = Transform3D(0.85645396, 0, 0.373238, 0, 0.12153456, 0, -0.35352775, 0, 0.9042039, -0.44067195, 0.0035868883, 0.17890993)
+mesh = SubResource("QuadMesh_4j6g3")
+surface_material_override/0 = SubResource("StandardMaterial3D_br0pb")
+
+[editable path="ghostAngry"]
