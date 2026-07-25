@@ -20,7 +20,7 @@ var minigame_times: Dictionary = {
 	"res://minigames/fire/fire.tscn": 20.0,
 }
 
-var current_level = 10
+var current_level = 9
 var queue: Array = []
 
 func _ready() -> void:

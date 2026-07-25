@@ -8,7 +8,7 @@ const PLAYER_CENTER: Vector3 = Vector3.ZERO
 func setup(level: int, speed: float = 1.0) -> void:
 	speed_multiplier = speed
 	var difficulty = 1.0 - (float(level) / 10.0)
-	fish_count = int(lerp(6, 16, difficulty))   # more fish overall, higher ceiling for hard levels
+	fish_count = int(lerp(7, 16, difficulty))   # more fish overall, higher ceiling for hard levels
 	super.setup(level)
 
 func start_minigame() -> void:
