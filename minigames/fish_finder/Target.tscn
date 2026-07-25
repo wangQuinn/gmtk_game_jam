@@ -9,6 +9,7 @@
 script = ExtResource("1_5cjd1")
 
 [node name="fish" parent="." unique_id=1729240679 instance=ExtResource("2_lc74s")]
+transform = Transform3D(-1.3554994, 0, 0.15204366, 0, 1.364, 0, -0.15204366, 0, -1.3554994, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=796536654]
 shape = SubResource("SphereShape3D_4ugoo")
