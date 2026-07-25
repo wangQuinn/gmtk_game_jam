@@ -52,3 +52,4 @@ mesh = SubResource("CapsuleMesh_fbh3u")
 
 [node name="boom" type="AudioStreamPlayer" parent="." unique_id=592748434]
 stream = ExtResource("3_wa5vi")
+volume_db = -42.799

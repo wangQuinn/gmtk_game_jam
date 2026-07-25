@@ -432,13 +432,20 @@ theme_override_fonts/font = SubResource("FontFile_h2yge")
 theme_override_font_sizes/font_size = 84
 text = "LEVEL"
 
+[node name="timer" type="Label" parent="HUD" unique_id=671100571]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 36
+text = "1234"
+
 [node name="MinigameContainer" type="Node3D" parent="." unique_id=1563790441]
 
-[node name="LevelManager" type="Node" parent="." unique_id=344320842 node_paths=PackedStringArray("minigame_container", "character", "level_label", "start_target")]
+[node name="LevelManager" type="Node" parent="." unique_id=344320842 node_paths=PackedStringArray("minigame_container", "character", "level_label", "start_target", "timer_label")]
 script = ExtResource("3_h2yge")
 minigame_container = NodePath("../MinigameContainer")
 character = NodePath("../character")
 level_label = NodePath("../HUD/Label2")
 start_target = NodePath("../Target")
+timer_label = NodePath("../HUD/timer")
 
 [node name="Target" parent="." unique_id=779861654 instance=ExtResource("3_1bvp3")]
