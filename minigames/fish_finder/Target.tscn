@@ -1,12 +1,17 @@
 [gd_scene format=3 uid="uid://b1eddhyn08yq8"]
 
 [ext_resource type="Script" uid="uid://dyhgc18pxafml" path="res://minigames/fish_finder/target.gd" id="1_5cjd1"]
+[ext_resource type="PackedScene" uid="uid://brl5oguv65qlc" path="res://minigames/fish_finder/low_poly_hat.glb" id="2_1npew"]
 [ext_resource type="PackedScene" uid="uid://c6ynm4dg65ogs" path="res://minigames/fish_finder/fish.glb" id="2_lc74s"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4ugoo"]
 
 [node name="Target" type="Area3D" unique_id=779861654]
 script = ExtResource("1_5cjd1")
+
+[node name="fishHat" parent="." unique_id=1268811226 instance=ExtResource("2_1npew")]
+transform = Transform3D(0.32, 0, 0, 0, 0.32, 0, 0, 0, 0.32, 0, 0.22993135, 0)
+visible = false
 
 [node name="fish" parent="." unique_id=1729240679 instance=ExtResource("2_lc74s")]
 transform = Transform3D(-1.3554994, 0, 0.15204366, 0, 1.364, 0, -0.15204366, 0, -1.3554994, 0, 0, 0)

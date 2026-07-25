@@ -12,10 +12,8 @@ var orbit_height: float = 1.0
 var height_bob_amount: float = 0.3
 var height_bob_speed: float = 1.5
 
-
 func _ready() -> void:
 	add_to_group("targets")
-
 
 func _process(delta: float) -> void:
 	orbit_angle += orbit_speed * delta
@@ -27,7 +25,6 @@ func _process(delta: float) -> void:
 	var direction = (new_position - global_position)
 	if direction.length() > 0.001:
 		look_at(global_position + direction, Vector3.UP)
-		rotate_y(-PI / 2) 
 
 	global_position = new_position
 
@@ -40,23 +37,10 @@ func setup_orbit(center: Vector3, radius: float, start_angle: float, speed: floa
 
 func mark_as_target(is_target: bool) -> void:
 	is_correct_target = is_target
-	var mesh = get_node_or_null("fish/Fih")
-	if mesh == null:
-		print("WARNING: mesh not found for", name)
-		return
-	var original_mat = mesh.get_active_material(0)
-	if original_mat == null:
-		print("WARNING: no material on mesh for", name)
-		return
-	var mat = original_mat.duplicate()
-	if is_target:
-		mat.emission_enabled = true
-		mat.emission = Color(1.0, 0.85, 0.1)
-		mat.emission_energy_multiplier = 3.0
-	else:
-		mat.emission_enabled = false
-	mesh.set_surface_override_material(0, mat)
 
+	var hat = get_node_or_null("fishHat")
+	if hat:
+		hat.visible = is_target
 
 func hit() -> void:
 	emit_signal("target_hit", self)
