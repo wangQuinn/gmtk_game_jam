@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://ckdnydo8ug5ld" path="res://minigames/cavity_shooter/assets/head.glb" id="1_quc8i"]
 [ext_resource type="Script" uid="uid://5eqovrajpi5u" path="res://minigames/cavity_shooter/cavity_shooter.gd" id="2_d4vo3"]
 [ext_resource type="Script" uid="uid://bqf7rv5h8lobe" path="res://minigames/cavity_shooter/mouth_control.gd" id="3_kh0bv"]
+[ext_resource type="Script" uid="uid://bkjma87bek8ns" path="res://minigames/cavity_shooter/cavity_spawn_area.gd" id="4_uc5sq"]
+[ext_resource type="PackedScene" uid="uid://dy1sev4wy8o5c" path="res://minigames/cavity_shooter/cavity.tscn" id="5_2rf1t"]
 
 [node name="CavityShooter" unique_id=1224604069 instance=ExtResource("1_quc8i")]
 transform = Transform3D(-0.98964393, 0, -0.14354411, 0, 1, 0, 0.14354411, 0, -0.98964393, 0, 0, 0)
@@ -11,12 +13,33 @@ script = ExtResource("2_d4vo3")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="0" unique_id=1302491029]
 
 [node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1527377234) index="0" unique_id=620531255]
-bones/1/rotation = Quaternion(0.6992843, 0.08898727, -0.47859934, 0.52347434)
-bones/2/rotation = Quaternion(0.6563996, 0.09481422, -0.46794507, 0.58410376)
-bones/3/rotation = Quaternion(0.6314424, 0.09437899, -0.46612722, 0.612453)
+bones/1/rotation = Quaternion(0.76667976, 0.043913793, -0.5454815, 0.33574358)
+bones/2/rotation = Quaternion(0.7342467, 0.055552155, -0.543779, 0.40261662)
+bones/3/rotation = Quaternion(0.60558426, 0.1040061, -0.44610375, 0.6507241)
 
 [node name="Head" parent="Armature/Skeleton3D" index="0" unique_id=134358823]
 transform = Transform3D(3.6799679, 0, -2.793248, 0, 4.619999, 0, 2.793248, 0, 3.6799679, -0.97749114, 1.0145899, -1.7979866)
 
 [node name="MouthControl" type="Node3D" parent="." index="3" unique_id=1131242324]
 script = ExtResource("3_kh0bv")
+
+[node name="ToothSlots" type="Node3D" parent="." index="4" unique_id=751643563]
+script = ExtResource("4_uc5sq")
+cavity_scene = ExtResource("5_2rf1t")
+
+[node name="Slot1" type="Node3D" parent="ToothSlots" index="0" unique_id=1977007198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9697957, 0.28166756, 0.2981439)
+
+[node name="Slot2" type="Node3D" parent="ToothSlots" index="1" unique_id=1639868910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20249254, -0.16988662, 0.5541297)
+
+[node name="Slot3" type="Node3D" parent="ToothSlots" index="2" unique_id=1066773575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25041217, 2.2143145, 1.7264302)
+
+[node name="Slot4" type="Node3D" parent="ToothSlots" index="3" unique_id=893990477]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9046197, -0.23604882, 0.18330932)
+
+[node name="Slot5" type="Node3D" parent="ToothSlots" index="4" unique_id=1078243014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.457655, 2.4349747, 1.4242046)
+
+[node name="SpawnedCavities" type="Node3D" parent="ToothSlots" index="5" unique_id=2060278431]

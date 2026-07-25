@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://dy1sev4wy8o5c"]
 
-[ext_resource type="PackedScene" uid="uid://cp10m218whfyq" path="res://minigames/cavity_shooter/assets/cavity.glb" id="1_46i71"]
+[ext_resource type="Script" uid="uid://c7qe8v4lnjfp" path="res://minigames/cavity_shooter/cavity_target.gd" id="1_v0goe"]
+[ext_resource type="PackedScene" uid="uid://cp10m218whfyq" path="res://minigames/cavity_shooter/assets/cavity.glb" id="2_47152"]
 
-[node name="Cavity" type="Node3D" unique_id=1344164013]
+[sub_resource type="BoxShape3D" id="BoxShape3D_tow2k"]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1567878312]
+[node name="Cavity" type="Area3D" unique_id=1072612314]
+script = ExtResource("1_v0goe")
 
-[node name="cavity" parent="StaticBody3D" unique_id=1833209060 instance=ExtResource("1_46i71")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.9392035, 0)
+[node name="cavity" parent="." unique_id=1833209060 instance=ExtResource("2_47152")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=608338623]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1702815606]
+transform = Transform3D(0.52908564, 0, 0, 0, 0.6868547, 0, 0, 0, 0.27701977, 0, 0, 0)
+shape = SubResource("BoxShape3D_tow2k")
