@@ -1,3 +1,13 @@
 [gd_scene format=3 uid="uid://cetod1mr4428s"]
 
+[ext_resource type="Script" uid="uid://cv0ahxtlbkaxs" path="res://minigames/soul_tracker/soul_tracker.gd" id="1_kjvuo"]
+[ext_resource type="PackedScene" uid="uid://ddkkdu8owniwe" path="res://minigames/soul_tracker/soul.tscn" id="2_k6jwj"]
+
 [node name="SoulTracker" type="Node3D" unique_id=122985070]
+script = ExtResource("1_kjvuo")
+ghost_scene = ExtResource("2_k6jwj")
+ghost_count = 3
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1383140711]
+
+[node name="SoulContainer" type="Node3D" parent="." unique_id=1055262236]

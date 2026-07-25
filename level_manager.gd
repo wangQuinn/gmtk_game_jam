@@ -12,12 +12,14 @@ var all_minigames: Array[String] = [
 	"res://minigames/fish_finder/TargetPractice.tscn",
 	"res://minigames/cavity_shooter/cavity_shooter.tscn",
 	"res://minigames/fire/fire.tscn",
+	"res://minigames/soul_tracker/soul_tracker.tscn",
 ]
 
 var minigame_times: Dictionary = {
 	"res://minigames/fish_finder/TargetPractice.tscn" : 10.0,
 	"res://minigames/cavity_shooter/cavity_shooter.tscn" : 20.0,
 	"res://minigames/fire/fire.tscn": 20.0,
+	"res://minigames/soul_tracker/soul_tracker.tscn": 15.0,
 }
 
 var current_level = 9
