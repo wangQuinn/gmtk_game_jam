@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d3t04y2fttpw1"]
+
+[ext_resource type="Script" uid="uid://bc05kx87hhxdx" path="res://minigames/intro_story/intro_scene.gd" id="1_tlg0k"]
+
+[node name="IntroScene" type="Control" unique_id=876570318]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tlg0k")
+
+[node name="FireFlicker" type="TextureRect" parent="." unique_id=1193142600]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TitleLabel" type="Label" parent="." unique_id=350170416]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Nine Levels Down"
+
+[node name="FutureTitle" type="TextureRect" parent="." unique_id=880728622]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

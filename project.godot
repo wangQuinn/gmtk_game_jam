@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="GMTK"
-run/main_scene="uid://f1g584e87ilt"
+run/main_scene="uid://d3t04y2fttpw1"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+HUD="*uid://bdshrq6fuv5te"
 
 [display]
 
