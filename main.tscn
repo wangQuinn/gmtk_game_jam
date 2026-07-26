@@ -179,3 +179,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -153, -16)
 
 [node name="Cliff_0042" parent="." unique_id=1543250139 instance=ExtResource("5_7mycd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, -151.99998, 8)
+
+[node name="FadeOverlay" type="ColorRect" parent="." unique_id=1530921116]
+offset_right = 1197.0
+offset_bottom = 695.0
+color = Color(0, 0, 0, 1)

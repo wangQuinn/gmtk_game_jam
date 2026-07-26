@@ -10,6 +10,9 @@ extends Node
 @onready var level_label2: Label = $"../HUD/Control/LevelLabel"
 @onready var level_timer: Timer = Timer.new()
 @onready var hat_target_label: Label = $"../HUD/Control/HatTargetLabel"
+@onready var fade_overlay: ColorRect = $"../FadeOverlay"   
+@onready var gun_ui: CanvasLayer = $"../character/Camera3D/GunUI"
+@onready var gun_texture: TextureRect = $"../character/Camera3D/GunUI/GunTexture"
 
 var all_minigames: Array[String] = [
 	"res://minigames/fish_finder/TargetPractice.tscn",
@@ -35,12 +38,24 @@ func _ready() -> void:
 	start_target.start_pressed.connect(_on_start_pressed)
 	level_label2.hide()
 	lose_label.hide()
-	
+	gun_ui.hide()
+
 	# nothing else happens until the sphere is shot
 	add_child(level_timer)
 	level_timer.one_shot = true
 	level_timer.timeout.connect(_on_level_timeout)
 	hat_target_label.hide()
+	
+	fade_overlay.modulate.a = 1.0
+	var fade_tween = create_tween()
+	fade_tween.tween_property(fade_overlay, "modulate:a", 0.0, 1.5)
+	await fade_tween.finished
+	fade_overlay.hide()
+	
+	gun_ui.show()
+	gun_texture.modulate.a = 0.0
+	var gun_tween = create_tween()
+	gun_tween.tween_property(gun_texture, "modulate:a", 1.0, 0.6)
 
 func _on_start_pressed() -> void:
 	character.set_process(true)
