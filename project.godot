@@ -25,6 +25,10 @@ window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/main_scene="uid://f1g584e87ilt"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_gif/plugin.cfg")
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

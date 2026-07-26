@@ -1,0 +1,16 @@
+[remap]
+
+importer="texture_gif"
+importer_version=2
+type="GIFTexture"
+uid="uid://dcxu66akj3j8"
+path="res://.godot/imported/fireVideo.gif-697f57eece6833c9f5aff70da886e6e2.res"
+
+[deps]
+
+source_file="res://fireVideo.gif"
+dest_files=["res://.godot/imported/fireVideo.gif-697f57eece6833c9f5aff70da886e6e2.res"]
+
+[params]
+
+storage/compress=true
