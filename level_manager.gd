@@ -134,7 +134,7 @@ func _on_level_timeout() -> void:
 	for child in minigame_container.get_children():
 		child.queue_free()
 	lose_label.show()
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1).timeout
 	lose_label.hide()
 	current_level = min(current_level + 1, 10)
 	start_level(current_level)
