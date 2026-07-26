@@ -42,19 +42,19 @@ func shoot():
 	var query = PhysicsRayQueryParameters3D.create(from, to)
 	query.collide_with_areas = true
 	var result = space_state.intersect_ray(query)
-<<<<<<< Updated upstream
-	print(result)
-	if result:
-		print("Hit:", result.collider.name)
-		print("Groups:", result.collider.get_groups())
-		if result.collider.is_in_group("targets"):
-			print("TARGET HIT!")
-			result.collider.hit()
-	print("Camera:", camera.global_position)
-	print("Basis Z:", camera.global_transform.basis.z)
-	print("From:", from)
-	print("To:", to)
-=======
+#<<<<<<< Updated upstream
+	#print(result)
+	#if result:
+		#print("Hit:", result.collider.name)
+		#print("Groups:", result.collider.get_groups())
+		#if result.collider.is_in_group("targets"):
+			#print("TARGET HIT!")
+			#result.collider.hit()
+	#print("Camera:", camera.global_position)
+	#print("Basis Z:", camera.global_transform.basis.z)
+	#print("From:", from)
+	#print("To:", to)
+#=======
 
 	var target_point = to
 	if result:
@@ -70,4 +70,4 @@ func shoot():
 	await get_tree().create_timer(bullet.lifetime).timeout
 	if is_instance_valid(bullet):
 		bullet.queue_free()
->>>>>>> Stashed changes
+#>>>>>>> Stashed changes
