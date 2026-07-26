@@ -14,6 +14,11 @@ extends Node
 @onready var gun_ui: CanvasLayer = $"../character/Camera3D/GunUI"
 @onready var gun_texture: TextureRect = $"../character/Camera3D/GunUI/GunTexture"
 
+@onready var fire1 : AnimatedSprite3D = $'../fire1'
+@onready var fire2 : AnimatedSprite3D = $'../fire2'
+@onready var fire3 : AnimatedSprite3D = $'../fire3'
+@onready var fire4 : AnimatedSprite3D = $'../fire4'
+
 @onready var music_player: AudioStreamPlayer = $"../MusicPlayer"
 @onready var ending_label: Label = $"../HUD/Control/EndingLabel"
 @onready var ending_image: TextureRect = $"../HUD/Control/EndingImage"
@@ -285,6 +290,17 @@ func _input(event):
 	
 	if ending_active and event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
 		get_tree().change_scene_to_file("res://main.tscn")
+	if Input.is_key_pressed(KEY_F):
+		if(fire1.visible == false):
+			fire1.show()
+			fire2.show()
+			fire3.show()
+			fire4.show()
+		else:
+			fire1.hide()
+			fire2.hide()
+			fire3.hide()
+			fire4.hide()
 
 func _shake_label(label: Label, base_pos: Vector2, strength: float = 6.0, duration: float = 0.3) -> void:
 	var tween = create_tween()
