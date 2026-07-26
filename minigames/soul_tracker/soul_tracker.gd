@@ -5,7 +5,7 @@ extends MinigameBase
 @export var ghost_scene: PackedScene
 @export var ghost_container_path: NodePath = "SoulContainer"
 @export var ghost_count: int = 4
-@export var stay_duration: float = 15.0
+@export var stay_duration: float = 20.0
 @export var spawn_radius: float = 2.0
 @export var spawn_distance_forward: float = -6.0  # how far in front of the player
 @export var raycast_length: float = 100.0
@@ -21,6 +21,16 @@ var camera: Camera3D = null
 
 func setup(level: int, speed: float = 1.0) -> void:
 	speed_multiplier = speed
+	
+	if level >= 7:
+		ghost_count = 2
+	elif level >= 5:
+		ghost_count = 3
+	elif level >= 3:
+		ghost_count = 4
+	else:
+		ghost_count = 5
+	
 	super.setup(level)
 
 

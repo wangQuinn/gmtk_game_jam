@@ -19,9 +19,9 @@ var all_minigames: Array[String] = [
 
 var minigame_times: Dictionary = {
 	"res://minigames/fish_finder/TargetPractice.tscn" : [10.0, "Shoot the Odd Fish!"],
-	"res://minigames/cavity_shooter/cavity_shooter.tscn" : [20.0, "Be a Dentist!"],
+	"res://minigames/cavity_shooter/cavity_shooter.tscn" : [10.0, "Be a Dentist!"],
 	"res://minigames/fire/fire.tscn": [20.0, "Put out the fire!"] ,
-	"res://minigames/soul_tracker/soul_tracker.tscn": [15.0, "Ghosts! Happy!"],
+	"res://minigames/soul_tracker/soul_tracker.tscn": [20.0, "Ghosts! Happy!"],
 }
 
 

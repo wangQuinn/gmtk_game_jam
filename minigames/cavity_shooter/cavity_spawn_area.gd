@@ -4,7 +4,7 @@ extends Node3D
 
 @export var cavity_scene: PackedScene
 @export var tooth_scene: PackedScene
-@export var cavity_count: int = 3
+@export var cavity_count: int = 2
 @export var spawn_container_path: NodePath = "SpawnedCavities"
 
 var spawned_cavities: Array = []
@@ -14,8 +14,16 @@ var minigame_ref: Node = null
 @onready var spawn_container: Node = get_node(spawn_container_path)
 
 
-func generate(minigame: Node) -> void:
+func generate(minigame: Node, level: int) -> void:
 	minigame_ref = minigame
+	
+	if level >= 7:
+		cavity_count = 2
+	elif level >= 5:
+		cavity_count = 3
+	else:
+		cavity_count = 3 + (5 - level)
+	
 	_clear()
 
 	var slots: Array = []
