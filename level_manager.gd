@@ -14,6 +14,8 @@ extends Node
 @onready var gun_ui: CanvasLayer = $"../character/Camera3D/GunUI"
 @onready var gun_texture: TextureRect = $"../character/Camera3D/GunUI/GunTexture"
 
+@onready var music_player: AudioStreamPlayer = $"../MusicPlayer"
+
 var all_minigames: Array[String] = [
 	"res://minigames/fish_finder/TargetPractice.tscn",
 	"res://minigames/cavity_shooter/cavity_shooter.tscn",
@@ -56,6 +58,8 @@ func _ready() -> void:
 	gun_texture.modulate.a = 0.0
 	var gun_tween = create_tween()
 	gun_tween.tween_property(gun_texture, "modulate:a", 1.0, 0.6)
+	
+	music_player.play()
 
 func _on_start_pressed() -> void:
 	character.set_process(true)
@@ -63,6 +67,8 @@ func _on_start_pressed() -> void:
 	start_level(current_level)
 
 func start_level(level: int) -> void:
+	character.invert_controls = (level == 9 or level == 7)
+	
 	var count = randi_range(1, 3)
 	queue = []
 	for i in count:

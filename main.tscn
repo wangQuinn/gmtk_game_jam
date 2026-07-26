@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b847k3t4yc5lw" path="res://level_manager.gd" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://doumb6l874beu" path="res://source/Separate_assets_glb/Separate_assets_glb/Cliff_004.glb" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bm8ye7o8atdvn" path="res://source/Inferno_World_free.glb" id="5_lquwl"]
+[ext_resource type="AudioStream" uid="uid://df4p4ag617cya" path="res://Future-Goth.ogg" id="8_5vw27"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbh3u"]
 albedo_color = Color(0.089563765, 0.5009525, 0.3467506, 1)
@@ -106,6 +107,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 
 [node name="LevelLabel" type="Label" parent="HUD/Control" unique_id=1131740626]
+visible = false
 material = SubResource("ShaderMaterial_272bh")
 layout_mode = 1
 anchors_preset = 8
@@ -184,3 +186,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, -151.99998, 8)
 offset_right = 1197.0
 offset_bottom = 695.0
 color = Color(0, 0, 0, 1)
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=912214672]
+stream = ExtResource("8_5vw27")
+volume_db = -37.175

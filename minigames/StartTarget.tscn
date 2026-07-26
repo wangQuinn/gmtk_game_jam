@@ -4,10 +4,13 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4ugoo"]
 
-[node name="Target" type="Area3D" unique_id=779861654]
+[node name="Target2" type="Area3D" unique_id=779861654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.2376838)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=793158579]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11450362, 2.6368742)
 mesh = SubResource("SphereMesh_4ugoo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=796536654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11450362, 2.6368742)
 shape = SubResource("SphereShape3D_4ugoo")

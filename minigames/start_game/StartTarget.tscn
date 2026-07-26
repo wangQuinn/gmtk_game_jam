@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://h658joh5j7ur"]
 
 [ext_resource type="Script" uid="uid://5mn8eeulw3om" path="res://minigames/start_game/start_target.gd" id="1_qolal"]
+[ext_resource type="FontFile" uid="uid://hn41buan6lpx" path="res://nes-cyrillic.otf/nes-cyrillic.otf" id="2_82b82"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
 albedo_color = Color(0.52417845, 0.30193606, 1, 1)
@@ -10,11 +11,19 @@ material = SubResource("StandardMaterial3D_h2yge")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4ugoo"]
 
-[node name="Target" type="Area3D" unique_id=779861654]
+[node name="Target2" type="Area3D" unique_id=779861654]
 script = ExtResource("1_qolal")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=793158579]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8855166, -8.310941)
 mesh = SubResource("SphereMesh_4ugoo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=796536654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8855166, -8.310941)
 shape = SubResource("SphereShape3D_4ugoo")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=895460083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2468395, 1.8936596, -8.100307)
+text = "shoot to start ->"
+font = ExtResource("2_82b82")
+font_size = 48

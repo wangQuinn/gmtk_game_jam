@@ -11,12 +11,12 @@
 transform = Transform3D(-0.98964393, 0, -0.14354411, 0, 1, 0, 0.14354411, 0, -0.98964393, 0, 0, 0)
 script = ExtResource("2_d4vo3")
 
-[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1527377234) index="0" unique_id=620531255]
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(892752006) index="0" unique_id=1939993198]
 bones/1/rotation = Quaternion(0.76667976, 0.043913793, -0.5454815, 0.33574358)
 bones/2/rotation = Quaternion(0.7342467, 0.055552155, -0.543779, 0.40261662)
 bones/3/rotation = Quaternion(0.60558426, 0.1040061, -0.44610375, 0.6507241)
 
-[node name="Head" parent="Armature/Skeleton3D" index="0" unique_id=134358823]
+[node name="Head" parent="Armature/Skeleton3D" index="0" unique_id=1222542496]
 transform = Transform3D(3.6799679, 0, -2.793248, 0, 4.619999, 0, 2.793248, 0, 3.6799679, -0.97749114, 1.0145899, -1.7979866)
 
 [node name="MouthControl" type="Node3D" parent="." index="2" unique_id=1131242324]
