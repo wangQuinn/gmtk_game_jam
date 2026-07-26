@@ -2,7 +2,7 @@ extends Node
 @export var minigame_container: Node3D
 @export var character: Node3D
 @export var level_label: Label
-@export var start_target: Area3D   
+@export var start_target: Node3D   
 @export var level_time_limit: float = 30.0 # seconds per level
 @export var timer_label: Label #timer label
 
@@ -42,7 +42,7 @@ var queue: Array = []
 func _ready() -> void:
 	character.set_process(false)
 	character.set_physics_process(false)
-	start_target.start_pressed.connect(_on_start_pressed)
+	start_target.tutorial_complete.connect(_on_start_pressed)
 	level_label2.hide()
 	lose_label.hide()
 	gun_ui.hide()

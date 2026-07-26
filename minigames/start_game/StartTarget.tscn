@@ -2,28 +2,116 @@
 
 [ext_resource type="Script" uid="uid://5mn8eeulw3om" path="res://minigames/start_game/start_target.gd" id="1_qolal"]
 [ext_resource type="FontFile" uid="uid://hn41buan6lpx" path="res://nes-cyrillic.otf/nes-cyrillic.otf" id="2_82b82"]
+[ext_resource type="Script" uid="uid://dkkkgghrob2gq" path="res://minigames/start_game/ball.gd" id="3_x6sqh"]
+[ext_resource type="Script" uid="uid://dxxyhjp2a5dc7" path="res://minigames/start_game/cube.gd" id="4_6ixu6"]
+[ext_resource type="Script" uid="uid://5fi3xvbw66ur" path="res://minigames/start_game/cylinder.gd" id="5_d3nlo"]
+[ext_resource type="Script" uid="uid://bioxa4x4e3int" path="res://minigames/start_game/start.gd" id="6_u3ifi"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h2yge"]
-albedo_color = Color(0.52417845, 0.30193606, 1, 1)
+albedo_color = Color(0.82903165, 0.7838927, 0.57086474, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_4ugoo"]
 material = SubResource("StandardMaterial3D_h2yge")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4ugoo"]
 
-[node name="Target2" type="Area3D" unique_id=779861654]
+[sub_resource type="BoxMesh" id="BoxMesh_tow2k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cneui"]
+albedo_color = Color(0.9982541, 0, 0.2036125, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tow2k"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tow2k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6sqh"]
+albedo_color = Color(0.43208417, 0.5983849, 1, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tow2k"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_tow2k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ixu6"]
+albedo_color = Color(0.7278964, 0.32612476, 1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cneui"]
+
+[node name="StartGame" type="Node3D" unique_id=582585064]
 script = ExtResource("1_qolal")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=793158579]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8855166, -8.310941)
+[node name="Ball" type="Area3D" parent="." unique_id=359113790]
+script = ExtResource("3_x6sqh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ball" unique_id=793158579]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6586637, -8.310941)
 mesh = SubResource("SphereMesh_4ugoo")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=796536654]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8855166, -8.310941)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ball" unique_id=796536654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.6586637, -8.310941)
 shape = SubResource("SphereShape3D_4ugoo")
 
-[node name="Label3D" type="Label3D" parent="." unique_id=895460083]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2468395, 1.8936596, -8.100307)
-text = "shoot to start ->"
+[node name="Label3D" type="Label3D" parent="Ball" unique_id=895460083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2468395, 3.6668067, -8.100307)
+text = "Click to Shoot ->"
+font = ExtResource("2_82b82")
+font_size = 48
+
+[node name="Cube" type="Area3D" parent="." unique_id=181279575]
+script = ExtResource("4_6ixu6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube" unique_id=466157319]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7731471, -8.454546)
+mesh = SubResource("BoxMesh_tow2k")
+surface_material_override/0 = SubResource("StandardMaterial3D_cneui")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube" unique_id=819419648]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7731471, -8.454546)
+shape = SubResource("BoxShape3D_tow2k")
+
+[node name="Label3D" type="Label3D" parent="Cube" unique_id=1261135398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.176516, 1.7731471, -8.219501)
+text = "Hold ->"
+font = ExtResource("2_82b82")
+font_size = 48
+
+[node name="Cylinder" type="Area3D" parent="." unique_id=828815015]
+script = ExtResource("5_d3nlo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cylinder" unique_id=1890057459]
+transform = Transform3D(1, 0, 0, 0, 0.68988496, 0, 0, 0, 1, 0, -0.014209747, -8.343896)
+mesh = SubResource("CylinderMesh_tow2k")
+surface_material_override/0 = SubResource("StandardMaterial3D_x6sqh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder" unique_id=85217039]
+transform = Transform3D(1, 0, 0, 0, 0.6985527, 0, 0, 0, 1, 0, -0.014209747, -8.343896)
+shape = SubResource("CylinderShape3D_tow2k")
+
+[node name="Label3D" type="Label3D" parent="Cylinder" unique_id=688964784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.324594, 0.046380997, -8.249033)
+text = "Hover ->"
+font = ExtResource("2_82b82")
+font_size = 48
+
+[node name="StartBall" type="Area3D" parent="." unique_id=1546548730]
+script = ExtResource("6_u3ifi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StartBall" unique_id=412105412]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9816723, 0)
+mesh = SubResource("SphereMesh_tow2k")
+surface_material_override/0 = SubResource("StandardMaterial3D_6ixu6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StartBall" unique_id=563832971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9816723, 0)
+shape = SubResource("SphereShape3D_cneui")
+
+[node name="Label3D" type="Label3D" parent="StartBall" unique_id=1217488561]
+transform = Transform3D(-0.99686605, 0, -0.07910943, 0, 1, 0, 0.07910943, 0, -0.99686605, 3.1816258, 2.1288538, 0)
+text = "Shoot to Start ->"
+font = ExtResource("2_82b82")
+font_size = 48
+
+[node name="Label3D" type="Label3D" parent="." unique_id=386740470]
+transform = Transform3D(0.30682895, 0, -0.95176476, 0, 1, 0, 0.95176476, 0, 0.30682895, 1.4877548, 2.7630434, -4.9715195)
+text = "Look around ->"
 font = ExtResource("2_82b82")
 font_size = 48
