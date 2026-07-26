@@ -123,7 +123,7 @@ scale = Vector2(1.5898314, 1.6123441)
 pivot_offset = Vector2(200, 0)
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_5vw27")
-theme_override_font_sizes/font_size = 34
+theme_override_font_sizes/font_size = 38
 text = "LEVEL"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -175,7 +175,7 @@ timer_label = NodePath("../HUD/Control/timer")
 [node name="Target" parent="." unique_id=779861654 instance=ExtResource("3_1bvp3")]
 
 [node name="Inferno_World_free" parent="." unique_id=635064973 instance=ExtResource("5_lquwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, -148, -16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -153, -16)
 
 [node name="Cliff_0042" parent="." unique_id=1543250139 instance=ExtResource("5_7mycd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67, -146.99998, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, -151.99998, 8)
