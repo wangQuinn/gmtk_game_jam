@@ -2,15 +2,40 @@
 
 [ext_resource type="Script" uid="uid://dyhgc18pxafml" path="res://minigames/fish_finder/target.gd" id="1_5cjd1"]
 [ext_resource type="PackedScene" uid="uid://brl5oguv65qlc" path="res://minigames/fish_finder/low_poly_hat.glb" id="2_1npew"]
+[ext_resource type="PackedScene" uid="uid://djjjcu0j8r5yj" path="res://minigames/fish_finder/female_beach_hat.glb" id="2_a1bdo"]
+[ext_resource type="PackedScene" uid="uid://cy5lnama041ai" path="res://minigames/fish_finder/simple_low_poly_crown.glb" id="2_j06c8"]
 [ext_resource type="PackedScene" uid="uid://c6ynm4dg65ogs" path="res://minigames/fish_finder/fish.glb" id="2_lc74s"]
+[ext_resource type="PackedScene" uid="uid://ibbvelbvj1ah" path="res://minigames/fish_finder/christmas_hat_low_poly.glb" id="2_xfxnk"]
+[ext_resource type="PackedScene" uid="uid://lmfuuopcrrb0" path="res://minigames/fish_finder/witchHat.glb" id="3_kcyx5"]
+[ext_resource type="PackedScene" uid="uid://cbxjrpo2kbhdg" path="res://minigames/fish_finder/top_hat.glb" id="5_l8v3o"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4ugoo"]
 
 [node name="Target" type="Area3D" unique_id=779861654]
 script = ExtResource("1_5cjd1")
 
-[node name="fishHat" parent="." unique_id=1268811226 instance=ExtResource("2_1npew")]
-transform = Transform3D(0.32, 0, 0, 0, 0.32, 0, 0, 0, 0.32, 0, 0.22993135, 0)
+[node name="crownHat" parent="." unique_id=1679590202 instance=ExtResource("2_j06c8")]
+transform = Transform3D(0.22895308, 0.021920005, 0, -0.021920005, 0.22895308, 0, 0, 0, 0.23, 0.15961486, 0.5769093, 0)
+visible = false
+
+[node name="witchHat" parent="." unique_id=1198050191 instance=ExtResource("3_kcyx5")]
+transform = Transform3D(-4.3610607e-10, 0.00067866925, -0.009976944, 2.966558e-11, 0.009976944, 0.00067866925, 0.01, 0, -4.371139e-10, 3.20193, 3.2618606, 0.0008495748)
+visible = false
+
+[node name="beachHat" parent="." unique_id=1804226453 instance=ExtResource("2_a1bdo")]
+transform = Transform3D(0.32787162, 0.037419274, 0, -0.037419274, 0.32787162, 0, 0, 0, 0.32999998, 0, 0.2124883, -0.07600379)
+visible = false
+
+[node name="santaHat" parent="." unique_id=1278608645 instance=ExtResource("2_xfxnk")]
+transform = Transform3D(-0.00980707, -0.121696174, -0.2740326, 0.0036177726, 0.27411118, -0.12186053, 0.29981786, -0.007288274, -0.0074931937, 0.063096404, 0.42793494, 0)
+visible = false
+
+[node name="cowboyHat" parent="." unique_id=1268811226 instance=ExtResource("2_1npew")]
+transform = Transform3D(0.32, 0, 0, 0, 0.32, 0, 0, 0, 0.32, 0.033840477, 0.24805695, -0.00056254864)
+visible = false
+
+[node name="topHat" parent="." unique_id=1930238546 instance=ExtResource("5_l8v3o")]
+transform = Transform3D(0.47858644, 0.036810733, 0, -0.036810733, 0.47858644, 0, 0, 0, 0.48, 0, 0.40936887, 0)
 visible = false
 
 [node name="fish" parent="." unique_id=1729240679 instance=ExtResource("2_lc74s")]

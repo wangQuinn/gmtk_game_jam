@@ -12,8 +12,21 @@ var orbit_height: float = 1.0
 var height_bob_amount: float = 0.3
 var height_bob_speed: float = 1.5
 
+var hat_nodes: Dictionary = {}
+
 func _ready() -> void:
 	add_to_group("targets")
+	hat_nodes = {
+		"Crown": get_node_or_null("crownHat"),
+		"Witch Hat": get_node_or_null("witchHat"),
+		"Beach Hat": get_node_or_null("beachHat"),
+		"Christmas Hat": get_node_or_null("santaHat"),
+		"Cowboy Hat": get_node_or_null("cowboyHat"),
+		"Top Hat": get_node_or_null("topHat"),
+	}
+	for hat in hat_nodes.values():
+		if hat:
+			hat.visible = false
 
 func _process(delta: float) -> void:
 	orbit_angle += orbit_speed * delta
@@ -35,12 +48,22 @@ func setup_orbit(center: Vector3, radius: float, start_angle: float, speed: floa
 	orbit_speed = speed
 	orbit_height = height
 
+var current_hat_name: String = ""
+
+func set_hat(hat_name: String) -> void:
+	current_hat_name = hat_name
+	for name in hat_nodes:
+		if hat_nodes[name]:
+			hat_nodes[name].visible = (name == hat_name)
+	# if hat_name is "None", this loop naturally hides everything since nothing matches
+
 func mark_as_target(is_target: bool) -> void:
 	is_correct_target = is_target
-
-	var hat = get_node_or_null("fishHat")
-	if hat:
-		hat.visible = is_target
+	
+func clear_hat() -> void:
+	for hat in hat_nodes.values():
+		if hat:
+			hat.visible = false
 
 func hit() -> void:
 	emit_signal("target_hit", self)

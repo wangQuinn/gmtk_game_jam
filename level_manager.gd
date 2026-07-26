@@ -9,6 +9,7 @@ extends Node
 @onready var lose_label: Label = $"../HUD/Control/LoseLabel"
 @onready var level_label2: Label = $"../HUD/Control/LevelLabel"
 @onready var level_timer: Timer = Timer.new()
+@onready var hat_target_label: Label = $"../HUD/Control/HatTargetLabel"
 
 var all_minigames: Array[String] = [
 	"res://minigames/fish_finder/TargetPractice.tscn",
@@ -39,6 +40,7 @@ func _ready() -> void:
 	add_child(level_timer)
 	level_timer.one_shot = true
 	level_timer.timeout.connect(_on_level_timeout)
+	hat_target_label.hide()
 
 func _on_start_pressed() -> void:
 	character.set_process(true)
@@ -90,6 +92,10 @@ func _load_next_minigame() -> void:
 	var text_for_level = minigame_times.get(path, "SHOOT!")[1]
 	lose_label.text = text_for_level
 	lose_label.show()
+	
+	if scene.has_signal("hat_prompt_ready"):
+		scene.hat_prompt_ready.connect(_on_hat_prompt_ready)
+
 	await get_tree().create_timer(1).timeout
 	lose_label.hide()
 	level_timer.start(time_for_level)
@@ -101,8 +107,14 @@ func _load_next_minigame() -> void:
 	scene.setup(current_level, speed)
 	scene.start_minigame()
 
+func _on_hat_prompt_ready(hat_name: String) -> void:
+	hat_target_label.text = "Find: %s" % hat_name
+	hat_target_label.show()
+
+
 func _on_minigame_finished(minigame_node: Node) -> void:
 	timer_label.hide()
+	hat_target_label.hide()
 	level_timer.stop()
 	minigame_node.queue_free()
 	_load_next_minigame()

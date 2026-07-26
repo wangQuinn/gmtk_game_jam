@@ -23,6 +23,7 @@ HUD="*uid://bdshrq6fuv5te"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/main_scene="uid://f1g584e87ilt"
 
 [physics]
 
