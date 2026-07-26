@@ -6,8 +6,8 @@
 emission_shape_offset = Vector3(0, 0, -1)
 direction = Vector3(0, 0, -1)
 spread = 0.0
-initial_velocity_min = 43.399998
-initial_velocity_max = 43.399998
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
 gravity = Vector3(0, 0, 0)
 color = Color(0.69983715, 0.6712637, 0, 1)
 

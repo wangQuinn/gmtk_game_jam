@@ -81,21 +81,23 @@ anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Label" type="Label" parent="HUD/Control" unique_id=1223307662]
+[node name="Crosshair" type="Label" parent="HUD/Control" unique_id=1223307662]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -22.5
-offset_right = 20.0
-offset_bottom = 22.5
+offset_left = -10.0
+offset_top = -22.0
+offset_right = 30.0
+offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
 text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="HUD/Control" unique_id=612206860]
 layout_mode = 1
@@ -132,12 +134,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="timer" type="Label" parent="HUD/Control" unique_id=671100571]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 50.0
 theme_override_font_sizes/font_size = 36
 
 [node name="LoseLabel" type="Label" parent="HUD/Control" unique_id=1811631392]
+visible = false
 material = SubResource("ShaderMaterial_1say5")
 layout_mode = 1
 anchors_preset = 8
@@ -157,6 +161,7 @@ theme_override_font_sizes/font_size = 55
 text = "YOU LOOSE :( "
 
 [node name="HatTargetLabel" type="Label" parent="HUD/Control" unique_id=496556647]
+visible = false
 layout_mode = 0
 offset_left = 802.0
 offset_top = 31.0
@@ -202,7 +207,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -153, -16)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, -151.99998, 8)
 
 [node name="FadeOverlay" type="ColorRect" parent="." unique_id=1530921116]
-offset_right = 1197.0
+offset_left = 3.0
+offset_right = 1200.0
 offset_bottom = 695.0
 color = Color(0, 0, 0, 1)
 
