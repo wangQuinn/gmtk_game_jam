@@ -22,6 +22,15 @@ albedo_color = Color(0.9982541, 0, 0.2036125, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tow2k"]
 
+[sub_resource type="QuadMesh" id="QuadMesh_cneui"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3ifi"]
+albedo_color = Color(0.24705882, 0.9607843, 0.9411765, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_tow2k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d3nlo"]
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_tow2k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6sqh"]
@@ -76,6 +85,19 @@ font_size = 48
 
 [node name="Cylinder" type="Area3D" parent="." unique_id=828815015]
 script = ExtResource("5_d3nlo")
+
+[node name="Node3D" type="Node3D" parent="Cylinder" unique_id=1573822116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68502855, -0.8086982, -7.699732)
+
+[node name="bar_fill" type="MeshInstance3D" parent="Cylinder" unique_id=130009831]
+transform = Transform3D(1.3446426, 0, 0, 0, 0.39106193, 0, 0, 0, 1, 0, -0.78700066, -7.768901)
+mesh = SubResource("QuadMesh_cneui")
+surface_material_override/0 = SubResource("StandardMaterial3D_u3ifi")
+
+[node name="bar_bg" type="MeshInstance3D" parent="Cylinder" unique_id=1083686951]
+transform = Transform3D(1.5175722, 0, 0, 0, 0.48406446, 0, 0, 0, 1, 0, -0.77183557, -7.7995596)
+mesh = SubResource("QuadMesh_tow2k")
+surface_material_override/0 = SubResource("StandardMaterial3D_d3nlo")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cylinder" unique_id=1890057459]
 transform = Transform3D(1, 0, 0, 0, 0.68988496, 0, 0, 0, 1, 0, -0.014209747, -8.343896)

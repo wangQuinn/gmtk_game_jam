@@ -3,13 +3,18 @@ signal step_completed
 
 @export var hold_time_required: float = 1.5
 @export var raycast_length: float = 100.0
+@export var min_scale: float = 0.2   # how small it gets right before vanishing
+
+@onready var cube_mesh: Node3D = $MeshInstance3D   # adjust to your actual mesh node name
 
 var hold_progress: float = 0.0
 var camera: Camera3D = null
+var base_scale: Vector3
 
 
 func _ready() -> void:
 	add_to_group("targets")
+	base_scale = cube_mesh.scale
 
 
 func _process(delta: float) -> void:
@@ -23,10 +28,18 @@ func _process(delta: float) -> void:
 
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and _is_being_aimed_at():
 		hold_progress += delta
+		_update_scale()
 		if hold_progress >= hold_time_required:
 			_complete()
 	else:
 		hold_progress = max(0.0, hold_progress - delta * 2.0)
+		_update_scale()
+
+
+func _update_scale() -> void:
+	var ratio = 1.0 - (hold_progress / hold_time_required)
+	var scale_factor = lerp(min_scale, 1.0, ratio)
+	cube_mesh.scale = base_scale * scale_factor
 
 
 func _is_being_aimed_at() -> bool:
