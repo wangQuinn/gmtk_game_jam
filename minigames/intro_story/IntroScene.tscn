@@ -1,7 +1,15 @@
 [gd_scene format=3 uid="uid://d3t04y2fttpw1"]
 
 [ext_resource type="Script" uid="uid://bc05kx87hhxdx" path="res://minigames/intro_story/intro_scene.gd" id="1_tlg0k"]
-[ext_resource type="Texture2D" uid="uid://b5ye354rh5qq1" path="res://minigames/intro_story/title.png" id="2_4lmvg"]
+[ext_resource type="Texture2D" uid="uid://du1lwtjs0s4m6" path="res://fire.png" id="2_npddj"]
+[ext_resource type="FontFile" uid="uid://hn41buan6lpx" path="res://nes-cyrillic.otf/nes-cyrillic.otf" id="3_cbdn2"]
+[ext_resource type="Shader" uid="uid://cvtuyc4hvpbua" path="res://text.gdshader" id="3_d0swr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_npddj"]
+shader = ExtResource("3_d0swr")
+shader_parameter/height = 5.0
+shader_parameter/frequency = 2.0
+shader_parameter/speed = 5.0
 
 [node name="IntroScene" type="Control" unique_id=876570318]
 layout_mode = 3
@@ -17,4 +25,17 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_4lmvg")
+texture = ExtResource("2_npddj")
+
+[node name="Title" type="Label" parent="TitleImage" unique_id=1723752589]
+material = SubResource("ShaderMaterial_npddj")
+layout_mode = 0
+offset_left = 183.0
+offset_top = 147.0
+offset_right = 1033.0
+offset_bottom = 474.0
+theme_override_fonts/font = ExtResource("3_cbdn2")
+theme_override_font_sizes/font_size = 85
+text = "Nine
+ Levels
+   Down..."

@@ -29,7 +29,7 @@ func play_intro() -> void:
 	tween.tween_property(title, "modulate:a", 1.0, 0.6)
 	await tween.finished
 
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(3.0).timeout
 	_on_intro_finished()
 
 func _on_intro_finished() -> void:
