@@ -1,14 +1,11 @@
 extends Node3D
-## All four tutorial shapes are active and visible from the start, in any order.
-## Hitting the final StartBall begins the game.
-
 signal tutorial_complete
 
 @export var ball_path: NodePath = "Ball"
 @export var cube_path: NodePath = "Cube"
 @export var cylinder_path: NodePath = "Cylinder"
 @export var start_ball_path: NodePath = "StartBall"
-@export var instructions_label_path: NodePath = "Label3D"   # adjust to your actual label's name
+@export var instructions_label_path: NodePath = "Label3D"
 
 @onready var ball: Node = get_node(ball_path)
 @onready var cube: Node = get_node(cube_path)
@@ -22,11 +19,14 @@ func _ready() -> void:
 
 
 func _on_start_ball_hit() -> void:
-	if(ball and cube and cylinder):
+	if is_instance_valid(ball):
 		ball.hide()
-		cube.hide()
+	if is_instance_valid(cylinder):
 		cylinder.hide()
-	
+	if is_instance_valid(cube):
+		cube.hide()
+
 	if instructions_label:
 		instructions_label.hide()
+
 	emit_signal("tutorial_complete")
