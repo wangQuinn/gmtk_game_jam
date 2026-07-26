@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cb2gmhm5n4cas"]
+
+[ext_resource type="Script" uid="uid://c4ls40u7yj2b8" path="res://bullet.gd" id="1_ayd6b"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x3e43"]
+emission_shape_offset = Vector3(0, 0, -1)
+direction = Vector3(0, 0, -1)
+spread = 0.0
+initial_velocity_min = 43.399998
+initial_velocity_max = 43.399998
+gravity = Vector3(0, 0, 0)
+color = Color(0.69983715, 0.6712637, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yr74j"]
+albedo_color = Color(0.625534, 0.56626457, 0.2796207, 1)
+emission_enabled = true
+emission = Color(0.892012, 0.937021, 0.5440301, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ayd6b"]
+material = SubResource("StandardMaterial3D_yr74j")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_4s4u5"]
+
+[node name="Muzzle Particles" type="GPUParticles3D" unique_id=2001481259]
+transform = Transform3D(1.0000014, 6.693881e-10, 6.9849193e-10, 6.1118044e-10, 1.0000001, -2.9802322e-08, 5.820766e-10, -1.7881393e-07, 1.0000008, 0, 0, 0)
+emitting = false
+amount = 1
+lifetime = 0.53
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_x3e43")
+draw_pass_1 = SubResource("SphereMesh_ayd6b")
+script = ExtResource("1_ayd6b")
+
+[node name="bullet" type="MeshInstance3D" parent="." unique_id=898342138]
+transform = Transform3D(0.06, 1.8189894e-12, -7.275958e-12, -3.637979e-12, 0.059999995, -9.313226e-10, -7.275958e-12, -9.313226e-10, 0.05999999, 0, 0, 0)
+visible = false
+mesh = SubResource("SphereMesh_4s4u5")

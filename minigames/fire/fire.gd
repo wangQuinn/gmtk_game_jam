@@ -1,5 +1,5 @@
-extends Node3D
-signal minigame_finished
+extends MinigameBase
+
 
 @export var fire_target_scene: PackedScene = preload("res://minigames/fire/FireTarget.tscn")
 @export var floor_size: Vector2 = Vector2(10, 10)  # match your actual floor dimensions
@@ -10,11 +10,13 @@ var active_fires: Array = []
 var level := 1
 var speed := 1.0
 
-func setup(current_level: int, spd: float) -> void:
+func setup(current_level: int, spd: float = 1.0) -> void:
+	super.setup(current_level)
 	level = current_level
 	speed = spd
 
 func start_minigame() -> void:
+	super.start_minigame()
 	var count = randi_range(min_fires, max_fires)
 	for i in count:
 		_spawn_fire()
@@ -31,4 +33,4 @@ func _spawn_fire() -> void:
 func _on_fire_extinguished(fire) -> void:
 	active_fires.erase(fire)
 	if active_fires.is_empty():
-		minigame_finished.emit()
+		finish_minigame()
