@@ -72,7 +72,7 @@ func _on_start_pressed() -> void:
 	start_level(current_level)
 
 func start_level(level: int) -> void:
-	character.invert_controls = (level == 9 or level == 7)
+	character.invert_controls = (level == 3 or level == 5 )
 	
 	var count = randi_range(1, 3)
 	queue = []
