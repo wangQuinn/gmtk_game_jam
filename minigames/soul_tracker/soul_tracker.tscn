@@ -8,6 +8,4 @@ script = ExtResource("1_kjvuo")
 ghost_scene = ExtResource("2_k6jwj")
 ghost_count = 3
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1383140711]
-
 [node name="SoulContainer" type="Node3D" parent="." unique_id=1055262236]
