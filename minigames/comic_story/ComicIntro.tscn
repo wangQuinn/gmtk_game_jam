@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cti77ffxgidkj" path="res://minigames/comic_story/panel5.png" id="6_d3csl"]
 [ext_resource type="Texture2D" uid="uid://36fi7cdid85n" path="res://minigames/comic_story/panel6.png" id="7_eeral"]
 [ext_resource type="Texture2D" uid="uid://ddlihooxx5v2r" path="res://minigames/comic_story/panel7.png" id="8_vq1iw"]
+[ext_resource type="FontFile" uid="uid://hn41buan6lpx" path="res://nes-cyrillic.otf/nes-cyrillic.otf" id="9_64nwg"]
 
 [node name="ComicScene" type="Control" unique_id=1346623073]
 layout_mode = 3
@@ -75,13 +76,14 @@ anchor_top = 2.6750002
 anchor_right = 24.475
 anchor_bottom = 13.185
 offset_left = -1.5258789e-05
-offset_top = 91.99999
+offset_top = 3.9999924
 offset_right = 13.0
 offset_bottom = -6.1035156e-05
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("9_64nwg")
 theme_override_font_sizes/normal_font_size = 30
 
 [node name="FadeOverlay" type="ColorRect" parent="." unique_id=252474113]

@@ -37,7 +37,7 @@ func show_text_screen() -> void:
 	var tween = create_tween()
 	tween.tween_property(text_screen, "modulate:a", 1.0, 0.6)
 	await tween.finished
-	await get_tree().create_timer(8).timeout
+	await get_tree().create_timer(12).timeout
 	_on_intro_finished()
 
 func _on_intro_finished() -> void:
