@@ -118,22 +118,29 @@ font_size = 48
 script = ExtResource("6_u3ifi")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StartBall" unique_id=412105412]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9816723, 0)
+transform = Transform3D(0.99448895, 0, 0.10484168, 0, 1, 0, -0.10484168, 0, 0.99448895, -1.8465191, 0.3719864, 0.111189)
 mesh = SubResource("SphereMesh_tow2k")
 surface_material_override/0 = SubResource("StandardMaterial3D_6ixu6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StartBall" unique_id=563832971]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9816723, 0)
+transform = Transform3D(0.99448895, 0, 0.10484168, 0, 1, 0, -0.10484168, 0, 0.99448895, -1.8465191, 0.3719864, 0.111189)
 shape = SubResource("SphereShape3D_cneui")
 
 [node name="Label3D" type="Label3D" parent="StartBall" unique_id=1217488561]
-transform = Transform3D(-0.99686605, 0, -0.07910943, 0, 1, 0, 0.07910943, 0, -0.99686605, 3.1816258, 2.1288538, 0)
+transform = Transform3D(-0.90990454, -0.027059939, -0.4139342, -0.028078582, 0.9995993, -0.0036244262, 0.41386637, 0.008324802, -0.9102997, 0.973179, 0.5191679, -1.0230639)
 text = "Shoot to Start ->"
 font = ExtResource("2_82b82")
 font_size = 48
+outline_size = 20
 
 [node name="Label3D" type="Label3D" parent="." unique_id=386740470]
 transform = Transform3D(0.30682895, 0, -0.95176476, 0, 1, 0, 0.95176476, 0, 0.30682895, 1.4877548, 2.7630434, -4.9715195)
 text = "Look around ->"
+font = ExtResource("2_82b82")
+font_size = 48
+
+[node name="Label3D2" type="Label3D" parent="." unique_id=453361762]
+transform = Transform3D(-0.9999968, 0, 0.0025429092, 0, 1, 0, -0.0025429092, 0, -0.9999968, -0.58161736, 2.8254948, -0.39595413)
+text = "Press [F] to toggle background fire"
 font = ExtResource("2_82b82")
 font_size = 48
