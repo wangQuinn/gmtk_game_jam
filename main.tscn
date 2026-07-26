@@ -171,10 +171,12 @@ theme_override_font_sizes/font_size = 30
 horizontal_alignment = 2
 
 [node name="EndingLabel" type="Label" parent="HUD/Control" unique_id=587106415]
-visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 1158.0
+offset_bottom = 657.0
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="EndingImage" type="TextureRect" parent="HUD/Control" unique_id=1229983233]
 visible = false
@@ -184,9 +186,13 @@ offset_bottom = 40.0
 texture = ExtResource("4_kek77")
 
 [node name="RestartLabel" type="Label" parent="HUD/Control" unique_id=652479471]
+visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 1156.0
+offset_bottom = 213.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MinigameContainer" type="Node3D" parent="." unique_id=1563790441]
 
@@ -207,7 +213,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -153, -16)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, -151.99998, 8)
 
 [node name="FadeOverlay" type="ColorRect" parent="." unique_id=1530921116]
-offset_left = 3.0
+offset_left = -28.0
 offset_right = 1200.0
 offset_bottom = 695.0
 color = Color(0, 0, 0, 1)
