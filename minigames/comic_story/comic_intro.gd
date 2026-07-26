@@ -7,8 +7,10 @@ extends Control
 @onready var story_label: RichTextLabel = $TextScreen/StoryLabel
 @onready var fade_overlay: ColorRect = $FadeOverlay
 
-@export var reveal_interval: float = 0.3
+@export var reveal_interval: float = 1.5
 @export var story_text: String = "... kitty has been caught for kitty's crimes, and for kitty's crimes, shall kitty be condemned to hell
+
+
 to regain kitty's nine lives, kitty must shoot through nine levels of hell doing good deeds"
 
 func _ready() -> void:
@@ -35,7 +37,7 @@ func show_text_screen() -> void:
 	var tween = create_tween()
 	tween.tween_property(text_screen, "modulate:a", 1.0, 0.6)
 	await tween.finished
-	await get_tree().create_timer(2.5).timeout
+	await get_tree().create_timer(8).timeout
 	_on_intro_finished()
 
 func _on_intro_finished() -> void:

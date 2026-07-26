@@ -20,6 +20,8 @@ extends Node
 @onready var restart_label: Label = $"../HUD/Control/RestartLabel"
 var ending_active: bool = false
 
+@onready var win_label: Label = $"../HUD/Control/WinLabel"
+@onready var win_image: TextureRect = $"../HUD/Control/WinImage"
 
 var all_minigames: Array[String] = [
 	"res://minigames/fish_finder/TargetPractice.tscn",
@@ -34,7 +36,6 @@ var minigame_times: Dictionary = {
 	"res://minigames/fire/fire.tscn": [20.0, "Put out the fire!"] ,
 	"res://minigames/soul_tracker/soul_tracker.tscn": [20.0, "Ghosts! Happy!"],
 }
-
 
 var current_level = 9
 var queue: Array = []
@@ -171,7 +172,7 @@ func _level_complete() -> void:
 	if current_level >= 1:
 		start_level(current_level)
 	else:
-		print("Game complete!")
+		_trigger_win_ending()
 		
 func _on_level_timeout() -> void:
 	timer_label.hide()
@@ -246,3 +247,57 @@ func _input(event):
 	
 	if ending_active and event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
 		get_tree().change_scene_to_file("res://main.tscn")
+
+func _trigger_win_ending() -> void:
+	queue.clear()
+	for child in minigame_container.get_children():
+		child.queue_free()
+	
+	hat_target_label.hide()
+	timer_label.hide()
+	
+	character.set_process(false)
+	character.set_physics_process(false)
+	
+	# fade gun out alongside fade to black
+	var gun_fade_tween = create_tween()
+	gun_fade_tween.tween_property(gun_texture, "modulate:a", 0.0, 1.0)
+	
+	fade_overlay.show()
+	fade_overlay.modulate.a = 0.0
+	var fade_tween = create_tween()
+	fade_tween.tween_property(fade_overlay, "modulate:a", 1.0, 1.5)
+	await fade_tween.finished
+	
+	gun_ui.hide()
+	
+	# show winning text
+	win_label.text = "Kitty has done enough good deeds... all nine lives are restored!"
+	win_label.modulate.a = 0.0
+	win_label.show()
+	var text_tween = create_tween()
+	text_tween.tween_property(win_label, "modulate:a", 1.0, 1.0)
+	await text_tween.finished
+	
+	await get_tree().create_timer(2.0).timeout
+	
+	# then show the win image
+	win_image.modulate.a = 0.0
+	win_image.show()
+	var image_tween = create_tween()
+	image_tween.tween_property(win_image, "modulate:a", 1.0, 1.0)
+	await image_tween.finished
+	
+	await get_tree().create_timer(2.0).timeout
+	
+	print("About to show restart label")
+
+	restart_label.text = "Press SPACE to play again"
+	restart_label.modulate.a = 0.0
+	restart_label.show()
+	var restart_tween = create_tween()
+	restart_tween.tween_property(restart_label, "modulate:a", 1.0, 0.8)
+	await restart_tween.finished
+	print("Restart label should be visible now")
+
+	ending_active = true

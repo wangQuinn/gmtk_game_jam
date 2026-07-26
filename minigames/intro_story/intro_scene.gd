@@ -6,8 +6,8 @@ extends Control
 var fire_tex: Texture2D = preload("res://minigames/intro_story/fire.png")
 var nofire_tex: Texture2D = preload("res://minigames/intro_story/nofire.png")
 
-@export var flicker_count: int = 8          # how many times it flickers
-@export var flicker_interval: float = 0.20  # seconds between each swap
+@export var flicker_count: int = 10          # how many times it flickers
+@export var flicker_interval: float = 0.25  # seconds between each swap
 
 func _ready() -> void:
 	title.modulate.a = 0.0

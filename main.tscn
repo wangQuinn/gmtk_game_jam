@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://hn41buan6lpx" path="res://nes-cyrillic.otf/nes-cyrillic.otf" id="3_5vw27"]
 [ext_resource type="Script" uid="uid://b847k3t4yc5lw" path="res://level_manager.gd" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://chd6wajxeh2to" path="res://EndingImage.png" id="4_kek77"]
+[ext_resource type="Texture2D" uid="uid://ccbmepbsld7q7" path="res://GoodEndingImage.png" id="5_4c57u"]
 [ext_resource type="PackedScene" uid="uid://doumb6l874beu" path="res://source/Separate_assets_glb/Separate_assets_glb/Cliff_004.glb" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bm8ye7o8atdvn" path="res://source/Inferno_World_free.glb" id="5_lquwl"]
 [ext_resource type="AudioStream" uid="uid://df4p4ag617cya" path="res://Future-Goth.ogg" id="8_5vw27"]
@@ -171,6 +172,7 @@ theme_override_font_sizes/font_size = 30
 horizontal_alignment = 2
 
 [node name="EndingLabel" type="Label" parent="HUD/Control" unique_id=587106415]
+visible = false
 layout_mode = 0
 offset_right = 1158.0
 offset_bottom = 657.0
@@ -184,6 +186,22 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("4_kek77")
+
+[node name="WinLabel" type="Label" parent="HUD/Control" unique_id=1075025331]
+visible = false
+layout_mode = 0
+offset_right = 1167.0
+offset_bottom = 661.0
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinImage" type="TextureRect" parent="HUD/Control" unique_id=965442386]
+visible = false
+layout_mode = 0
+offset_right = 1164.0
+offset_bottom = 665.0
+texture = ExtResource("5_4c57u")
 
 [node name="RestartLabel" type="Label" parent="HUD/Control" unique_id=652479471]
 visible = false
