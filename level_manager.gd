@@ -22,6 +22,12 @@ var ending_active: bool = false
 
 @onready var win_label: Label = $"../HUD/Control/WinLabel"
 @onready var win_image: TextureRect = $"../HUD/Control/WinImage"
+@onready var minigames_left_label: Label = $"../HUD/Control/MinigamesLeftLabel"
+var timer_label_base_position : Vector2
+var minigames_left_label_base_position : Vector2
+@export var low_time_threshold : float = 10.0 #seconds remaining before urgent mode 
+
+var isInverted = false;
 
 var all_minigames: Array[String] = [
 	"res://minigames/fish_finder/TargetPractice.tscn",
@@ -39,6 +45,8 @@ var minigame_times: Dictionary = {
 
 var current_level = 9
 var queue: Array = []
+var total_minigames_in_level:int = 0
+var current_minigame_index: int = 0
 
 func _ready() -> void:
 	character.set_process(false)
@@ -47,6 +55,10 @@ func _ready() -> void:
 	level_label2.hide()
 	lose_label.hide()
 	gun_ui.hide()
+	minigames_left_label.hide()
+	timer_label.hide()
+	timer_label_base_position = timer_label.position
+	minigames_left_label_base_position = minigames_left_label.position
 
 	# nothing else happens until the sphere is shot
 	add_child(level_timer)
@@ -73,21 +85,37 @@ func _on_start_pressed() -> void:
 	start_level(current_level)
 
 func start_level(level: int) -> void:
-	character.invert_controls = (level == 3 or level == 5 )
-	
+	character.invert_controls = (level == 3  or level ==7)
+	if(level == 3 or level == 7):
+		isInverted = true
+	else:
+		isInverted = false
 	var count = randi_range(1, 3)
 	queue = []
-	for i in count:
+	for i in ceil((11 - level)/2):
 		queue.append(all_minigames.pick_random())
+	total_minigames_in_level = queue.size()
+	current_minigame_index = 0
 	show_level_intro(level)
 	
 func _process(_delta: float) -> void:
 	if not level_timer.is_stopped():
-		timer_label.text = "Time: %.2f" % level_timer.time_left
+		timer_label.text = "%.2f" % level_timer.time_left
+		if level_timer.time_left <= low_time_threshold:
+			timer_label.modulate = Color (1.0,0.2,0.2)
+			var shake_strength = 4.0
+			timer_label.position = timer_label_base_position + Vector2(
+				randf_range(-shake_strength, shake_strength),
+				randf_range(-shake_strength, shake_strength)
+			)
 
 func show_level_intro(level: int) -> void:
 	level_label2.show() 
-	level_label2.text = "LEVEL %d" % level
+	var text = "LEVEL %d" % level
+	if(isInverted):
+		level_label2.text = reverse_string(text)
+	else:
+		level_label2.text = text
 	var target_pos: Vector2 = level_label2.position
 	var start_pos: Vector2 = target_pos + Vector2(0,-200)
 	var end_pos: Vector2 = target_pos + Vector2(0,500) 
@@ -112,12 +140,21 @@ func _load_next_minigame() -> void:
 		return
 	var path = queue.pop_front()
 	print("Selected minigame: ", path)
+	
+	current_minigame_index += 1
+	minigames_left_label.text = "%d/%d" % [current_minigame_index, total_minigames_in_level]
+	minigames_left_label.show()
+	_shake_label(minigames_left_label, minigames_left_label_base_position)
+	
 	var scene = load(path).instantiate()
 	minigame_container.add_child(scene)
 	character.hold_mode = (path == "res://minigames/fire/fire.tscn")
 	var time_for_level = minigame_times.get(path, level_time_limit)[0]
 	var text_for_level = minigame_times.get(path, "SHOOT!")[1]
-	lose_label.text = text_for_level
+	if(isInverted):
+		lose_label.text = reverse_string(text_for_level)
+	else:
+		lose_label.text = text_for_level
 	lose_label.show()
 	
 	if scene.has_signal("hat_prompt_ready"):
@@ -168,6 +205,7 @@ func _on_minigame_failed(minigame_node: Node) -> void:
 	start_level(current_level)
 
 func _level_complete() -> void:
+	minigames_left_label.hide()
 	current_level -= 1
 	if current_level >= 1:
 		start_level(current_level)
@@ -248,6 +286,14 @@ func _input(event):
 	if ending_active and event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
 		get_tree().change_scene_to_file("res://main.tscn")
 
+func _shake_label(label: Label, base_pos: Vector2, strength: float = 6.0, duration: float = 0.3) -> void:
+	var tween = create_tween()
+	var shakes = 6
+	for i in shakes:
+		var offset = Vector2(randf_range(-strength, strength), randf_range(-strength, strength))
+		tween.tween_property(label, "position", base_pos + offset, duration / shakes)
+	tween.tween_property(label, "position", base_pos, duration / shakes)
+
 func _trigger_win_ending() -> void:
 	queue.clear()
 	for child in minigame_container.get_children():
@@ -301,3 +347,8 @@ func _trigger_win_ending() -> void:
 	print("Restart label should be visible now")
 
 	ending_active = true
+	
+func reverse_string(input: String) -> String:
+	var characters := input.split("")
+	characters.reverse()
+	return "".join(characters)

@@ -22,6 +22,11 @@ func _ready() -> void:
 
 
 func _on_start_ball_hit() -> void:
+	if(ball and cube and cylinder):
+		ball.hide()
+		cube.hide()
+		cylinder.hide()
+	
 	if instructions_label:
 		instructions_label.hide()
 	emit_signal("tutorial_complete")
