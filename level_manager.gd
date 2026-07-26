@@ -37,7 +37,7 @@ var all_minigames: Array[String] = [
 ]
 
 var minigame_times: Dictionary = {
-	"res://minigames/fish_finder/TargetPractice.tscn" : [10.0, "Shoot the Odd Fish!"],
+	"res://minigames/fish_finder/TargetPractice.tscn" : [10.0, "Shoot the Wanted Fish!"],
 	"res://minigames/cavity_shooter/cavity_shooter.tscn" : [10.0, "Be a Dentist!"],
 	"res://minigames/fire/fire.tscn": [20.0, "Put out the fire!"] ,
 	"res://minigames/soul_tracker/soul_tracker.tscn": [20.0, "Ghosts! Happy!"],
@@ -267,7 +267,7 @@ func _trigger_bad_ending() -> void:
 	image_tween.tween_property(ending_image, "modulate:a", 1.0, 1.0)
 	await image_tween.finished
 	
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.5).timeout
 	
 	# show restart prompt
 	restart_label.text = "Press SPACE to play again"
@@ -334,7 +334,7 @@ func _trigger_win_ending() -> void:
 	image_tween.tween_property(win_image, "modulate:a", 1.0, 1.0)
 	await image_tween.finished
 	
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.5).timeout
 	
 	print("About to show restart label")
 
