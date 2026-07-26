@@ -169,13 +169,13 @@ text = "YOU LOOSE :( "
 [node name="HatTargetLabel" type="Label" parent="HUD/Control" unique_id=496556647]
 visible = false
 layout_mode = 0
-offset_left = 334.0
-offset_top = 31.0
-offset_right = 1116.0
-offset_bottom = 119.0
+offset_left = 18.0
+offset_top = 545.0
+offset_right = 1118.0
+offset_bottom = 633.0
 theme_override_fonts/font = ExtResource("3_5vw27")
 theme_override_font_sizes/font_size = 30
-horizontal_alignment = 2
+horizontal_alignment = 1
 
 [node name="EndingLabel" type="Label" parent="HUD/Control" unique_id=587106415]
 visible = false
@@ -220,6 +220,7 @@ offset_bottom = 665.0
 texture = ExtResource("5_4c57u")
 
 [node name="RestartLabel" type="Label" parent="HUD/Control" unique_id=652479471]
+visible = false
 layout_mode = 0
 offset_left = 2.0
 offset_top = 58.0
@@ -260,6 +261,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -153, -16)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43, -151.99998, 8)
 
 [node name="FadeOverlay" type="ColorRect" parent="." unique_id=1530921116]
+visible = false
 offset_left = -28.0
 offset_right = 1200.0
 offset_bottom = 695.0

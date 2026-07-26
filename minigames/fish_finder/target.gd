@@ -20,7 +20,7 @@ func _ready() -> void:
 		"Crown": get_node_or_null("crownHat"),
 		"Witch Hat": get_node_or_null("witchHat"),
 		"Beach Hat": get_node_or_null("beachHat"),
-		"Christmas Hat": get_node_or_null("santaHat"),
+		"Santa Hat": get_node_or_null("santaHat"),
 		"Cowboy Hat": get_node_or_null("cowboyHat"),
 		"Top Hat": get_node_or_null("topHat"),
 	}
