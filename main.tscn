@@ -107,6 +107,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 
 [node name="LevelLabel" type="Label" parent="HUD/Control" unique_id=1131740626]
+visible = false
 material = SubResource("ShaderMaterial_272bh")
 layout_mode = 1
 anchors_preset = 8
