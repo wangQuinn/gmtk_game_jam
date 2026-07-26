@@ -11,6 +11,8 @@ extends Node
 @onready var level_timer: Timer = Timer.new()
 @onready var hat_target_label: Label = $"../HUD/Control/HatTargetLabel"
 
+@onready var music_player: AudioStreamPlayer = $"../MusicPlayer"
+
 var all_minigames: Array[String] = [
 	"res://minigames/fish_finder/TargetPractice.tscn",
 	"res://minigames/cavity_shooter/cavity_shooter.tscn",
@@ -41,6 +43,8 @@ func _ready() -> void:
 	level_timer.one_shot = true
 	level_timer.timeout.connect(_on_level_timeout)
 	hat_target_label.hide()
+	
+	music_player.play()
 
 func _on_start_pressed() -> void:
 	character.set_process(true)
