@@ -148,8 +148,14 @@ func _on_minigame_finished(minigame_node: Node) -> void:
 	
 func _on_minigame_failed(minigame_node: Node) -> void:
 	timer_label.hide()
+	hat_target_label.hide()
 	level_timer.stop()
 	minigame_node.queue_free()
+
+	if current_level + 1 >= 10:
+		_trigger_bad_ending()
+		return
+
 
 	lose_label.text = "YOU LOOSE :("
 	print("YOU LOOSE :(")
