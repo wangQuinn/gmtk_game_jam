@@ -1,21 +1,28 @@
 [gd_scene format=3 uid="uid://ddeyb40wh68kp"]
 
 [ext_resource type="Script" uid="uid://d3fj0g2r6aql2" path="res://minigames/fire/fire_target.gd" id="1_r6xxw"]
+[ext_resource type="PackedScene" uid="uid://bal31qulqjgn6" path="res://minigames/fire/low_poly_fire.glb" id="2_ygrfv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbh3u"]
 albedo_color = Color(0.8237873, 0.20450535, 0.26463658, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1say5"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_te141"]
-points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fygqy"]
+radius = 0.85
+height = 2.3
 
 [node name="Fire" type="Area3D" unique_id=142340274]
 script = ExtResource("1_r6xxw")
 
+[node name="Sketchfab_Scene" parent="." unique_id=1253157442 instance=ExtResource("2_ygrfv")]
+transform = Transform3D(0.68, 0, 0, 0, 0.68, 0, 0, 0, 0.68, 0.012369394, -0.8993849, -0.13773584)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1222848550]
+visible = false
 material_override = SubResource("StandardMaterial3D_fbh3u")
 mesh = SubResource("BoxMesh_1say5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=952850423]
-shape = SubResource("ConvexPolygonShape3D_te141")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.036023736, 0.21021771, 0)
+shape = SubResource("CapsuleShape3D_fygqy")

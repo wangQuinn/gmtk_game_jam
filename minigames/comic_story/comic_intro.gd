@@ -43,6 +43,5 @@ func _on_intro_finished() -> void:
 	get_tree().change_scene_to_file("res://Main.tscn")
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.pressed or event is InputEventKey and event.pressed:
-		# optional: let player skip the whole intro sequence
+	if event is InputEventKey and event.pressed and event.keycode == KEY_S:
 		_on_intro_finished()
