@@ -10,14 +10,14 @@ enum State { ANGRY, HAPPY, DONE }
 ## Orbit settings
 var orbit_center: Vector3 = Vector3.ZERO
 var orbit_radius: float = 8.0
-var orbit_speed: float = 0.3
+var orbit_speed: float = 0.25
 var orbit_angle: float = 0.0
 var orbit_height: float = 1.0
 var height_bob_amount: float = 0.3
 var height_bob_speed: float = 1.5
 
 ## Direction-switching
-@export var min_direction_hold_time: float = 1.5
+@export var min_direction_hold_time: float = 2.0
 @export var max_direction_hold_time: float = 4.0
 var direction: float = 1.0   # 1.0 = CCW, -1.0 = CW
 var direction_switch_timer: float = 0.0
