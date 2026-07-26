@@ -124,6 +124,7 @@ func _load_next_minigame() -> void:
 	if character.has_signal("target_hit") and scene.has_method("_on_target_hit"):
 		character.target_hit.connect(scene._on_target_hit)
 	scene.minigame_finished.connect(_on_minigame_finished.bind(scene))
+	scene.minigame_failed.connect(_on_minigame_failed.bind(scene))
 	var speed = randf_range(0.8, 1.6)
 	scene.setup(current_level, speed)
 	scene.start_minigame()
@@ -139,6 +140,20 @@ func _on_minigame_finished(minigame_node: Node) -> void:
 	level_timer.stop()
 	minigame_node.queue_free()
 	_load_next_minigame()
+	
+func _on_minigame_failed(minigame_node: Node) -> void:
+	timer_label.hide()
+	level_timer.stop()
+	minigame_node.queue_free()
+
+	lose_label.text = "YOU LOOSE :("
+	print("YOU LOOSE :(")
+	lose_label.show()
+	await get_tree().create_timer(1).timeout
+	lose_label.hide()
+
+	current_level = min(current_level + 1, 9)
+	start_level(current_level)
 
 func _level_complete() -> void:
 	current_level -= 1
@@ -157,7 +172,7 @@ func _on_level_timeout() -> void:
 	lose_label.show()
 	await get_tree().create_timer(1).timeout
 	lose_label.hide()
-	current_level = min(current_level + 1, 10)
+	current_level = min(current_level + 1, 9)
 	start_level(current_level)
 	
 		

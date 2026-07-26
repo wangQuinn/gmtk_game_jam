@@ -59,4 +59,4 @@ func _on_fish_hit(fish: Node) -> void:
 	if fish.is_correct_target:
 		finish_minigame()
 	else:
-		pass
+		failed_minigame()

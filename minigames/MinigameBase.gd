@@ -2,6 +2,7 @@ class_name MinigameBase
 extends Node3D
 
 signal minigame_finished
+signal minigame_failed
 
 var _level: int = 1
 var _time_limit: float = 5.0
@@ -19,6 +20,13 @@ func finish_minigame() -> void:
 		return
 	_is_active = false
 	minigame_finished.emit()
+	
+func failed_minigame() -> void: 
+	if not _is_active:
+		return
+	_is_active = false
+	minigame_failed.emit()
+
 
 func _on_target_hit(_target: Node) -> void:
 	pass
